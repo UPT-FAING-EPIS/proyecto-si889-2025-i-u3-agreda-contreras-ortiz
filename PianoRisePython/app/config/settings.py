@@ -8,3 +8,4 @@ NOTES = {
 }
 
 ENERGY_THRESHOLD = 0.0005
+

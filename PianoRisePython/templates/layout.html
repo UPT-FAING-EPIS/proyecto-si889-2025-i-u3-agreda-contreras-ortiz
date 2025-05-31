@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}PianoRise{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto flex items-center justify-between py-4 px-4 md:px-8">
+      <a href="{{ url_for('main.index') }}" class="flex items-center space-x-2">
+        <svg class="w-6 h-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+        </svg>
+        <span class="text-xl md:text-2xl font-bold text-green-700">Piano<span class="text-green-500">Rise</span></span>
+      </a>
+      <nav class="flex space-x-4">
+        <a href="{{ url_for('main.index') }}" class="text-gray-700 hover:text-green-700 transition">Inicio</a>
+        <a href="#" class="text-gray-700 hover:text-green-700 transition">Cursos</a>
+        <a href="#" class="text-gray-700 hover:text-green-700 transition">Canciones</a>
+        <a href="#" class="text-gray-700 hover:text-green-700 transition">Sobre Nosotros</a>
+      </nav>
+      <div class="flex items-center space-x-4">
+        <a href="{{ url_for('usuario.login') }}" class="text-green-600 hover:text-green-800 transition">Ingresar</a>
+        <a href="{{ url_for('usuario.register') }}" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition">
+          Registrarse
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="flex-grow container mx-auto w-full px-4 py-8">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white py-8">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-lg font-bold flex items-center mb-2">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+            </svg>
+            PianoRise
+          </h3>
+          <p class="text-green-200">La plataforma de aprendizaje de piano para jóvenes más divertida.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-2">Explorar</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:underline">Inicio</a></li>
+            <li><a href="#" class="hover:underline">Cursos</a></li>
+            <li><a href="#" class="hover:underline">Canciones</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-2">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:underline">Términos</a></li>
+            <li><a href="#" class="hover:underline">Privacidad</a></li>
+            <li><a href="#" class="hover:underline">Cookies</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-2">Conéctate</h4>
+          <div class="flex space-x-4 mb-2">
+            <a href="#" class="text-white opacity-80 hover:opacity-100 transition">FB</a>
+            <a href="#" class="text-white opacity-80 hover:opacity-100 transition">IG</a>
+            <a href="#" class="text-white opacity-80 hover:opacity-100 transition">TW</a>
+          </div>
+          <p class="text-green-200">contacto@pianorise.com</p>
+        </div>
+      </div>
+      <div class="border-t border-green-600 mt-8 pt-6 text-center text-green-200">
+        <p>&copy; 2023 PianoRise. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

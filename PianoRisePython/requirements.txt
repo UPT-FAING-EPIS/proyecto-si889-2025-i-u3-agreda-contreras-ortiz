@@ -1,5 +1,11 @@
 flask
+flask-Login
 flask-socketio
+flask-sqlalchemy
+flask-migrate
+flask-wtf
+werkzeug
+psycopg2-binary
 numpy
 scipy
 librosa
@@ -7,3 +13,4 @@ pylint
 pyan3==1.1.1
 graphviz
 pydeps
+python-dotenv
