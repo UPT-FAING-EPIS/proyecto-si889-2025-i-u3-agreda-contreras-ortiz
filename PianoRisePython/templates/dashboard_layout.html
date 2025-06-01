@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Mi Aula{% endblock %}</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-green-700">PianoRise – Aula Virtual</h1>
+    <div class="relative">
+      <button id="perfil-toggle" class="text-sm text-green-700 hover:underline">
+        {{ usuario.nombre_completo }}
+      </button>
+      <div id="perfil-dropdown" class="hidden absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow p-4 z-10">
+        <h3 class="font-bold mb-2">Perfil</h3>
+        <p><strong>Nombre:</strong> {{ usuario.nombre_completo }}</p>
+        <p><strong>Correo:</strong> {{ usuario.correo_electronico }}</p>
+        <hr class="my-2">
+        <form action="{{ url_for('usuario.logout') }}" method="get">
+          <button class="text-red-500 hover:text-red-600 mt-2" type="submit">Cerrar sesión</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main class="p-6 max-w-6xl mx-auto">
+    {% block content %}{% endblock %}
+  </main>
+
+  <script>
+    document.getElementById("perfil-toggle").addEventListener("click", () => {
+      document.getElementById("perfil-dropdown").classList.toggle("hidden");
+    });
+  </script>
+</body>
+</html>

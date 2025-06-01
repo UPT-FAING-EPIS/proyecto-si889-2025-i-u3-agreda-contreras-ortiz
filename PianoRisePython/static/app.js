@@ -4,7 +4,8 @@ const sendInterval = 300;
 let lastSentTime = 0;
 let songCompleted = false;
 
-let song = ["C", "D", "E", "F", "G", "A", "B", "C"];
+let song = window.song || [];
+
 const pianoNotes = ["C", "D", "E", "F", "G", "A", "B", "C"];
 
 function drawPiano() {
@@ -44,6 +45,7 @@ async function getMicrophones() {
 }
 
 async function startRecording() {
+    socket.emit("iniciar_cancion", song);
     try {
         let stream = await navigator.mediaDevices.getUserMedia({
             audio: { deviceId: selectedDeviceId ? { exact: selectedDeviceId } : undefined }
@@ -144,13 +146,13 @@ socket.on("nota_detectada", data => {
         progressBar.value = 100;
         progressText.innerText = "¡Completado!";
         songCompleted = true;
-    
+
         confetti({
             particleCount: 150,
             spread: 70,
             origin: { y: 0.6 }
         });
-    }    
+    }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -164,7 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
         noteElement.innerText = note;
         songDisplay.appendChild(noteElement);
     });
-
+    if (song.length > 0) {
+        document.getElementById("nota_esperada").innerText = song[0];
+    }
     drawPiano();
     getMicrophones();
 });

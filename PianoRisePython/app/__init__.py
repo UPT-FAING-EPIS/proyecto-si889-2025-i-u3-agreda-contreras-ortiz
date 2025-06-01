@@ -32,8 +32,7 @@ def create_app():
     app.config['SECRET_KEY'] = secret
 
     # 2) Configuración de detección (solo constantes)
-    from app.config.settings import SONG, NOTES, ENERGY_THRESHOLD
-    app.config['SONG']             = SONG
+    from app.config.settings import NOTES, ENERGY_THRESHOLD
     app.config['NOTES']            = NOTES
     app.config['ENERGY_THRESHOLD'] = ENERGY_THRESHOLD
 

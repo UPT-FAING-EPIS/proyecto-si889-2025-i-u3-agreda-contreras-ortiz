@@ -1,4 +1,3 @@
-# app/models/cancion.py
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, Boolean, DateTime
 from sqlalchemy.dialects.postgresql import JSONB

@@ -1,4 +1,3 @@
-# app/models/alumno_aula.py
 from datetime import datetime
 from sqlalchemy import Column, Integer, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
