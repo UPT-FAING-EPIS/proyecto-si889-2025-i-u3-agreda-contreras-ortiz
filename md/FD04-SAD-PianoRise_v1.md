@@ -373,7 +373,7 @@ Muestra la estructura de directorios del proyecto "PianoRise". Dentro de la carp
 </center>
 
 
-## 2.3. Vista Física
+## 2.5. Vista Física
 ### Diagrama de clases:
 El diagrama muestra la interacción entre alumnos y docentes, cada uno con usuario, a su vez se ve la interacción entre aulas, canciones y el historial.
 
@@ -384,3 +384,36 @@ El diagrama muestra la interacción entre alumnos y docentes, cada uno con usuar
       <br>
 **Fuente:** Elaboración propia.
 </center>
+
+
+## 3. Objetivos y Limitaciones Arquitectónicas
+
+### 3.1. Disponibilidad
+
+- **Alta Disponibilidad**: Se implementarán mecanismos de redundancia y recuperación ante fallos para garantizar que la plataforma esté accesible en todo momento, especialmente durante horarios escolares o de práctica frecuente.
+
+- **Monitoreo y Alertas**: Se utilizarán herramientas de monitoreo en tiempo real para detectar interrupciones, errores en el sistema o problemas de conectividad, permitiendo una respuesta oportuna.
+
+- **Escalabilidad Vertical y Horizontal**: La arquitectura permitirá escalar verticalmente (aumentando los recursos de los servidores existentes) y horizontalmente (añadiendo más servidores) a medida que crezca el número de usuarios o aulas activas.
+
+### 3.2. Seguridad
+
+- **Autenticación y Autorización**: PianoRise contará con un sistema robusto de autenticación basado en usuario y contraseña, diferenciando los accesos entre docentes y alumnos para preservar la integridad del contenido y los datos.
+
+- **Encriptación de Datos**: Todos los datos sensibles, incluyendo credenciales y registros de desempeño, estarán encriptados tanto en tránsito como en reposo para proteger la privacidad del usuario.
+
+- **Cumplimiento Normativo**: El sistema buscará alinearse con las normativas educativas y de protección de datos vigentes en el entorno de uso, especialmente en contextos escolares.
+
+### 3.3. Adaptabilidad
+
+- **Arquitectura Modular**: PianoRise estará diseñado con una arquitectura modular que facilite la incorporación de nuevas funcionalidades, como soporte para nuevos instrumentos musicales o algoritmos de análisis de sonido más avanzados.
+
+- **Soporte Multiplataforma**: La plataforma será compatible con diversos dispositivos (computadoras, tablets) y navegadores web modernos, para asegurar una experiencia fluida tanto en el aula como en el hogar.
+
+- **Configurabilidad**: Los docentes podrán personalizar aspectos clave del aula como la selección de repertorio, nivel de dificultad y fechas de práctica, sin necesidad de modificar el código fuente.
+
+### 3.4. Rendimiento
+
+- **Optimización de consultas**: Se optimizarán las consultas a la base de datos, especialmente aquellas relacionadas con la carga de aulas, historial de estudiantes y reproducción de resultados de prácticas.
+
+- **Caching**: Se utilizarán mecanismos de caching inteligente para minimizar la latencia en la carga de información estática como canciones del repertorio general o historial de prácticas.
