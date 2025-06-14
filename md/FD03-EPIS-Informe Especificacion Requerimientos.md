@@ -658,3 +658,82 @@ Este diagrama de casos de uso representa las funcionalidades del sistema PianoRi
       <br>
       **Fuente:** Elaboración propia.
       </center>
+
+      2) ##### Diagrama de Actividades con Objetos {#diagrama-de-actividades-con-objetos}
+
+      <center>
+      
+      Caso de uso 01: Gestionar Autenticación y Credenciales de Usuario
+      
+      ![width=500](../media/actividades-1.png)
+
+      **Diagrama 04:** Diagrama de actividades con objetos del caso de uso 01.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+
+      <center>
+      
+      Caso de uso 02: Gestionar Aula
+      
+      ![width=500](../media/actividades-2.png)
+
+      **Diagrama 05:** Diagrama de actividades con objetos del caso de uso 02.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+      
+      <center>
+      
+      Caso de uso 03: Seleccionar Canción del Repertorio
+      
+      ![width=500](../media/actividades-3.png)
+
+      **Diagrama 06:** Diagrama de actividades con objetos del caso de uso 03.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+      
+      <center>
+      
+      Caso de uso 04: Gestionar Repertorio de Canciones
+      
+      ![width=500](../media/actividades-4.png)
+
+      **Diagrama 07:** Diagrama de actividades con objetos del caso de uso 04.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+      
+      <center>
+      
+      Caso de uso 05: Monitorear Progreso de Estudiantes
+      
+      ![width=500](../media/actividades-5.png)
+
+      **Diagrama 08:** Diagrama de actividades con objetos del caso de uso 05.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+      
+      <center>
+      
+      Caso de uso 06: Generar Reporte de Desempeño
+      
+      ![width=500](../media/actividades-6.png)
+
+      **Diagrama 09:** Diagrama de actividades con objetos del caso de uso 06.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+      
+      <center>
+      
+      Caso de uso 07: Gestionar Credenciales de Docente
+      
+      ![width=500](../media/actividades-7.png)
+
+      **Diagrama 10:** Diagrama de actividades con objetos del caso de uso 07.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
