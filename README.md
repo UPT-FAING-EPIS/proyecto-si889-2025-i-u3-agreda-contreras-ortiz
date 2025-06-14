@@ -4,6 +4,12 @@
 
 ---
 
+## 🌐 Links de Despliegue
+
+- [Alumno (Frontend)](https://pianorise-alumno.azurewebsites.net/)
+- [Admin (Frontend)](https://pianorise.azurewebsites.net/)
+
+---
 ## ⚙️ Requisitos Previos
 
 - [.NET SDK 8.0.409]([https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/en-us/download/dotnet/8.0))
@@ -60,3 +66,4 @@
 - **Web Audio API** – Captura de notas musicales desde el navegador
 
 ---
+
