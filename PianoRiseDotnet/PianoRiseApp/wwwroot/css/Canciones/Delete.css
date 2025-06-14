@@ -1,0 +1,21 @@
+.card-header-custom {
+    background: linear-gradient(to right, #dc3545, #c82333);
+    color: white;
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.form-card {
+    max-width: 700px;
+    border-radius: 0.75rem;
+}
+
+.nota-chip {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 6px 12px;
+    margin: 4px 6px 4px 0;
+    border-radius: 20px;
+    font-size: 14px;
+}

@@ -1,0 +1,13 @@
+.form-card {
+    max-width: 600px;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.card-header-custom {
+    background: linear-gradient(to right, #28a745, #218838);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+}

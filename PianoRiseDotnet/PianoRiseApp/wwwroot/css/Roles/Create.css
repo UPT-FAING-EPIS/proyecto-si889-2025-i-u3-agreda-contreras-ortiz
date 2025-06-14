@@ -1,0 +1,11 @@
+.card-header-custom {
+    background: linear-gradient(to right, #28a745, #218838);
+    color: white;
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.form-card {
+    max-width: 500px;
+    border-radius: 0.75rem;
+}

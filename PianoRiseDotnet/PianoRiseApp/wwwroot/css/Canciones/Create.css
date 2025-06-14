@@ -1,0 +1,35 @@
+.card-header-custom {
+    background: linear-gradient(to right, #28a745, #218838);
+    color: white;
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.btn-green {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-green:hover {
+    background-color: #218838;
+    color: white;
+}
+
+.chip {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 4px;
+    background-color: #e0e0e0;
+    border-radius: 16px;
+    font-size: 14px;
+}
+
+.chip button {
+    background: none;
+    border: none;
+    margin-left: 6px;
+    color: #333;
+    cursor: pointer;
+}

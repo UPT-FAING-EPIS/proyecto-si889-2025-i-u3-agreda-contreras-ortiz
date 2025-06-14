@@ -1,0 +1,49 @@
+/* Estilos generales para el panel */
+body {
+    background: linear-gradient(to right, #f8fff8, #e6f9ed);
+}
+
+/* Botón verde */
+.btn-green {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-green:hover {
+    background-color: #218838;
+    color: white;
+}
+
+/* Cabecera de la tarjeta principal */
+.card-header-custom {
+    background: linear-gradient(to right, #28a745, #218838);
+    color: white;
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* Panel principal (sin hover) */
+.panel-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tarjetas internas con efecto de movimiento */
+.hoverable-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hoverable-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
+}
+
+/* Botón de ícono */
+.icon-btn {
+    padding: 0.375rem 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}

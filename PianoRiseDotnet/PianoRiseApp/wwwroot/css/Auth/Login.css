@@ -1,0 +1,63 @@
+body {
+    background: linear-gradient(to right, #f8fff8, #e6f9ed);
+}
+
+.login-card {
+    max-width: 450px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header-custom {
+    background: linear-gradient(to right, #28a745, #218838);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 15px 15px 0 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.btn-green-glow {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 0 10px #28a74570;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-green-glow:hover {
+    background-color: #218838;
+    box-shadow: 0 0 20px #218838b0;
+    transform: scale(1.03);
+    color: white;
+}
+
+.input-group-text {
+    background-color: #e9f7ec;
+    border-color: #ced4da;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #333;
+}

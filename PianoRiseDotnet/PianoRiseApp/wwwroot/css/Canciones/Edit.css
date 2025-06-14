@@ -1,0 +1,31 @@
+.card-header-custom {
+    background: linear-gradient(to right, #28a745, #218838);
+    color: white;
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.title-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.chip {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 4px 6px 4px 0;
+    background-color: #e0e0e0;
+    border-radius: 16px;
+    font-size: 14px;
+}
+
+.chip button {
+    background: none;
+    border: none;
+    margin-left: 8px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
