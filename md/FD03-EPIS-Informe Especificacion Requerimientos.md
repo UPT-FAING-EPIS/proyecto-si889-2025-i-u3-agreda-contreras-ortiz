@@ -824,3 +824,33 @@ Este diagrama de casos de uso representa las funcionalidades del sistema PianoRi
 
 ![width=500](../media/DiagramaClases.png)
 
+
+**Diagrama 18:** El Diagrama de Clases muestra la interacción entre usuarios, administradores, empresas, egresados, ofertas laborales y postulaciones.
+</center>
+
+---
+
+### **Conclusiones**
+
+   PianoRise representa una solución innovadora y accesible para la enseñanza del piano, enfocada en estudiantes principiantes. Al integrar un sistema de retroalimentación inmediata mediante reconocimiento de audio, permite a los estudiantes practicar de manera autónoma, lo que mejora la motivación y acelera el proceso de aprendizaje. Este enfoque interactivo supera las limitaciones de los métodos tradicionales de enseñanza, que no brindan la oportunidad de recibir correcciones instantáneas mientras se toca.
+
+   La plataforma también se distingue por su capacidad para facilitar el monitoreo del progreso de los estudiantes. Los docentes podrán visualizar de manera clara el desempeño de cada alumno, las canciones completadas y las puntuaciones obtenidas, lo que optimiza el seguimiento individualizado. Esta funcionalidad ofrece una mejora significativa en la gestión educativa, ya que permite a los docentes tomar decisiones más informadas sobre el avance de sus estudiantes.
+
+   La accesibilidad es otro punto clave del proyecto. PianoRise, al ser una aplicación web, está disponible a través de navegadores modernos, lo que permite a los estudiantes practicar desde cualquier lugar y en cualquier momento, sin necesidad de instalaciones adicionales. Esta flexibilidad facilita el aprendizaje autónomo, permitiendo a los estudiantes practicar según su propio ritmo y disponibilidad.
+
+   En términos de seguridad y privacidad, PianoRise debe implementar medidas robustas para proteger los datos personales y de rendimiento de los usuarios. Esto garantizará la confianza de los estudiantes y docentes en el uso de la plataforma. Además, el monitoreo del rendimiento y la recolección de retroalimentación son esenciales para continuar mejorando la experiencia del usuario y adaptarse a las necesidades cambiantes de los estudiantes.
+
+   En conclusión, PianoRise ofrece una plataforma eficiente y accesible para el aprendizaje del piano, especialmente diseñada para estudiantes principiantes, con un enfoque en la retroalimentación inmediata y el seguimiento personalizado del progreso. A medida que el sistema evoluciona, tiene un gran potencial para crecer y adaptarse a nuevas necesidades, consolidándose como una herramienta valiosa para la educación musical digital.
+
+### **Recomendaciones**
+
+   - <strong>Refinar las funcionalidades de gestión de aulas:</strong> La gestión de aulas es crucial para los docentes, por lo que se recomienda continuar refinando la experiencia del administrador y el docente en la plataforma, incluyendo la posibilidad de asignar ejercicios y hacer un seguimiento detallado del progreso de los estudiantes.
+
+   - <strong>Optimización del procesamiento de audio:</strong> A medida que el sistema se vaya desarrollando, se recomienda seguir optimizando las bibliotecas y tecnologías utilizadas para el procesamiento del audio, como Librosa, para mejorar la precisión y reducir posibles retrasos en la retroalimentación.
+
+   - <strong>Desarrollo de más contenido de aprendizaje:</strong> En la fase inicial, el repertorio de canciones es básico, pero se recomienda agregar progresivamente más canciones y ejercicios que permitan a los estudiantes avanzar en su aprendizaje de forma más fluida y adaptada a sus necesidades.
+
+   - <strong>Análisis de usuarios y retroalimentación:</strong> Es recomendable que el sistema implemente un sistema de recolección de retroalimentación de los usuarios (tanto docentes como estudiantes) para obtener insights sobre la experiencia de uso y mejorar la plataforma en iteraciones futuras.
+   Pruebas rigurosas: Antes de la implementación completa, es crucial realizar pruebas rigurosas, especialmente en el procesamiento de audio y la precisión en la detección de notas. Estas pruebas deben garantizar que el sistema pueda manejar una variedad de entornos y condiciones de usuario.
+
+   - <strong>Preparación para la expansión:</strong> A pesar de las limitaciones actuales, la plataforma debe estar diseñada de tal manera que en el futuro se pueda integrar con otras herramientas educativas (por ejemplo, otros instrumentos musicales o aplicaciones de enseñanza complementarias) sin una reestructuración completa del sistema.
