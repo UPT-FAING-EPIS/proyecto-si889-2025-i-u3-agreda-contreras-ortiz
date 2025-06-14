@@ -473,3 +473,17 @@ Este diagrama contextual muestra las interacciones entre los dos módulos del si
   **Diagrama 13:**  El diagrama representa el flujo de PianoRise.<br>
   **Fuente:** Elaboración propia.
 </center>
+
+
+## 7. Vista de Despliegue
+### 7.1. Diagrama de Contenedor 
+Este diagrama de contenedor muestra la arquitectura de un sistema donde un dispositivo con un navegador se conecta a través de routers e internet a un servidor que hospeda las capas de presentación, datos y negocio de la aplicación.
+
+<center>
+
+  ![width=500](../media/dg_contenedor.png)    
+
+
+  **Diagrama 14:**  Diagrama de contenedor de PianoRise.<br>
+  **Fuente:** Elaboración propia.
+</center>
