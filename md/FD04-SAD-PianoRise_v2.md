@@ -514,3 +514,66 @@ Este diagrama de contenedor muestra la arquitectura de un sistema donde un dispo
   **Diagrama 16:**  Diagrama entidad relación de PianoRise.<br>
   **Fuente:** Elaboración propia.
 </center>
+
+
+## 10. Calidad
+### 10.1. Escenario de Seguridad
+
+  Las acciones dentro del sistema están restringidas según el tipo de usuario: docente, alumno o administrador. Para proteger la información académica y de desempeño, se aplican medidas como autenticación segura, validación de datos, cifrado de información sensible, principios de mínimo privilegio, control de sesiones y auditoría de eventos. Se utilizan prácticas seguras en las consultas a base de datos (parámetros parametrizados), así como firewalls y herramientas automáticas de detección de amenazas.
+
+  - Fuente: Usuario
+  - Estímulo: Realizar una acción en el sistema
+  - Entorno: Todo el sistema
+  - Artefacto: Autenticación del usuario
+  - Respuesta: El sistema verifica la identidad y el rol del usuario antes de permitir cualquier acción
+  - Medida de la Respuesta: El acceso se concede solo si el rol del usuario lo permite, asegurando integridad y confidencialidad en la base de datos
+
+### 10.1. Escenario de Usabilidad
+
+  <strong>Aprendizaje:</strong><br>
+  Al ingresar a la plataforma, el usuario (docente, admin u alumno) puede visualizar claramente las funcionalidades principales como acceso al aula, historial de prácticas, y configuración de perfil.
+  
+  <strong>Eficiencia:</strong><br>
+  El docente puede crear una nueva aula seleccionando canciones desde el repertorio general y asignando alumnos en pocos pasos, de forma intuitiva y rápida.
+
+  <strong>Memoria:</strong><br>
+  El sistema mantiene visibles las configuraciones seleccionadas (como canciones, nivel de dificultad o fechas) durante el proceso de creación del aula para evitar pérdidas de información.
+
+  <strong>Errores:</strong><br>
+  La plataforma valida datos en tiempo real, indicando campos incompletos o valores inválidos para prevenir errores comunes durante registros o asignaciones.
+
+  <strong>Satisfacción:</strong><br>
+  El sistema confirma cada acción con mensajes claros y oportunos. La fluidez en el uso, el diseño intuitivo y la carga rápida contribuyen a una experiencia de usuario positiva.
+
+### 10.1. Escenario de Adaptabilidad
+
+  PianoRise está diseñado para operar correctamente en los principales sistemas operativos, adaptándose a diferentes resoluciones de pantalla y navegadores. Su arquitectura modular y diseño responsivo garantizan que tanto alumnos como docentes puedan acceder y trabajar desde diferentes dispositivos sin inconvenientes.
+
+  - Fuente: Acceso a la plataforma web
+  - Estímulo: Interfaz disponible
+  - Entorno: Windows, Android, macOS, Linux
+  - Artefacto: Ordenador de escritorio o laptop
+  - Respuesta: Acceso completo sin errores
+  - Medida de la Respuesta: El acceso debe lograrse en el menor tiempo posible
+
+### 10.1. Escenario de Disponibilidad
+
+  <strong>Disponibilidad Continua:</strong><br>
+  La plataforma estará disponible el 97% para todos los roles, con especial atención en horarios escolares donde se espera mayor tráfico.
+  
+  <strong>Recuperación Rápida ante Fallos:</strong><br>
+  En caso de errores de servidor o pérdida de conexión, el sistema contará con mecanismos automáticos de recuperación y respaldos periódicos para evitar pérdidas de datos y reducir tiempos de inactividad.
+
+### 10.1. Otro Escenario
+
+  <strong>Escenario de Confidencialidad</strong><br>
+  Solo el administrador del sistema tiene acceso a configuraciones globales y datos críticos como historiales académicos completos, estadísticas de uso o reportes de aula. Si un usuario no autorizado intenta acceder a estos datos, el sistema lo redirige automáticamente y registra el intento.
+
+  - Afecta: Usuario
+  - Validación del Escenario: Asegurar que solo administradores accedan a configuraciones sensibles
+  - Origen: Usuario no autorizado
+  - Estímulo: Intentar acceder a la información
+  - Entorno: Condiciones normales
+  - Artefacto: Sistema
+  - Respuesta: La información está protegida y no se permite el acceso
+  - Medida de la Respuesta: Rechazo inmediato del intento de acceso
