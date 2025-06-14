@@ -197,3 +197,16 @@ Se empleó la metodología ágil **Scrum** en 5 sprints:
 | 06–07/05     | Gestión de Aulas Virtuales                  | Creación y edición de aulas.                                             |
 | 08–09/05     | Registro de Docentes                        | Administración de docentes por parte del administrador.                  |
 
+## 7. Presupuesto
+
+| Categoría de Costo     | Costo Total (S/.) |
+|------------------------|-------------------|
+| Costos Generales       | 0                 |
+| Costos Operativos      | 0                 |
+| Costos del Ambiente    | 20,400            |
+| Costos de Personal     | 13,560            |
+| **Total del Proyecto** | **S/ 33,960**     |
+
+> **Tabla 01**. Tabla de los costos totales para el desarrollo de la plataforma PianoRise.  
+> **Fuente**: Elaboración propia.
+
