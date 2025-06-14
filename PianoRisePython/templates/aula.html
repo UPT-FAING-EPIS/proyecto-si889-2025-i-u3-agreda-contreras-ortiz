@@ -1,36 +1,42 @@
-{% extends "dashboard_layout.html" %} {% block title %}Mi Aula{% endblock %} {%
-block content %}
-<div class="bg-white rounded-lg p-6 shadow-md mb-6">
-  <h1 class="text-3xl font-bold text-green-700 mb-4">
-    Aula: {{ aula.descripcion }}
+{% extends "dashboard_layout.html" %}
+
+{% block title %}Mi Aula{% endblock %}
+
+{% block content %}
+<div class="bg-white rounded-2xl p-6 shadow-lg mb-8 border-t-4 border-green-600">
+  <h1 class="text-4xl font-extrabold text-green-700 mb-2">
+    <center>🎓 ¡Bienvenido a tu Aula Virtual!</center>
   </h1>
-  <p class="text-gray-700 mb-2">Grado: {{ aula.grado }}{{ aula.seccion }}</p>
-  <p class="text-gray-700 mb-2">Año escolar: {{ aula.anio }}</p>
-  <p class="text-gray-600">Docente: {{ aula.docente.nombre_completo }}</p>
+  <div class="text-gray-700 text-lg space-y-1">
+    <p><strong>Grado:</strong> {{ aula.grado }}{{ aula.seccion }}</p>
+    <p><strong>Año escolar:</strong> {{ aula.anio }}</p>
+    <p><strong>Docente:</strong> {{ aula.docente.nombre_completo }}</p>
+  </div>
 </div>
 
-<div class="bg-white rounded-lg p-6 shadow-md">
-  <h2 class="text-2xl font-bold text-green-700 mb-4">🎵 Canciones asignadas</h2>
+<div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+  <h2 class="text-2xl font-bold text-green-700 mb-4">🎵 Canciones Asignadas</h2>
 
   {% if canciones|length > 0 %}
-  <ul class="grid md:grid-cols-2 gap-4">
-    {% for ac in canciones %}
-    <li class="p-4 border border-gray-200 rounded-lg shadow-sm">
-      <h3 class="text-lg font-semibold text-gray-800">
-        {{ ac.cancion.titulo }}
+  <ul class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for ac in canciones|sort(attribute='cancion.nivel') %}
+    <li class="bg-gray-50 rounded-xl p-4 shadow hover:shadow-md transition">
+      <h3 class="text-lg font-semibold text-gray-800 mb-1 flex items-center">
+        🎶 {{ ac.cancion.titulo }}
       </h3>
-      <p class="text-gray-600 text-sm">{{ ac.cancion.descripcion }}</p>
-      <p class="text-sm text-gray-500 mt-1">Nivel: {{ ac.cancion.nivel }}</p>
+      <p class="text-sm text-gray-600 italic mb-1">Compositor: {{ ac.cancion.compositor or "Anonimo" }}</p>
+      <p class="text-sm text-gray-500 mb-2">🔢 Nivel: <span class="font-medium">{{ ac.cancion.nivel }}</span></p>
       <a
-        href="{{ url_for('usuario.reconocimiento_cancion', cancion_id=ac.cancion.id) }}"
-        class="text-green-600 hover:underline text-sm mt-2 inline-block"
-        >Practicar 🎧</a
+        href="{{ url_for('usuario.reconocimiento_cancion', aula_id=aula.id, cancion_id=ac.cancion.id) }}"
+        class="inline-block bg-green-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-green-700 transition"
       >
+        🎧 Practicar ahora
+      </a>
     </li>
     {% endfor %}
   </ul>
   {% else %}
-  <p class="text-gray-600">Aún no hay canciones asignadas en esta aula.</p>
+  <p class="text-gray-600 text-center py-4">Aún no hay canciones asignadas para esta aula. 📭</p>
   {% endif %}
 </div>
 {% endblock %}

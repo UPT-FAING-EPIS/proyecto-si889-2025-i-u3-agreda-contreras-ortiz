@@ -106,18 +106,35 @@ def vincular_aula():
     return redirect(url_for("usuario.aula", aula_id=aula.id))
 
 
-@usuario_bp.route("/reconocimiento/<int:cancion_id>")
+@usuario_bp.route("/aula/<int:aula_id>/reconocimiento/<int:cancion_id>")
 @login_required
-def reconocimiento_cancion(cancion_id):
+def reconocimiento_cancion(aula_id, cancion_id):
     if current_user.rol_id != 3:
         flash("Acceso denegado.", "warning")
         return redirect(url_for("main.index"))
 
-    cancion = Cancion.query.get_or_404(cancion_id)
+    # Verificamos que el alumno esté inscrito en esa aula:
+    vinculo = current_user.alumno_aulas.filter_by(aula_id=aula_id).first()
+    if not vinculo:
+        flash("No estás inscrito en esta aula.", "warning")
+        return redirect(url_for("usuario.dashboard"))
+
+    aula = vinculo.aula
+    cancion = Aula.query \
+        .filter(Aula.id == aula_id) \
+        .first() \
+        .aula_canciones \
+        .filter_by(cancion_id=cancion_id) \
+        .first() \
+        .cancion
+
+    # También podrías usar Cancion.query.get_or_404(cancion_id) si
+    # estás seguro de que la canción pertenece al aula.
 
     return render_template(
         "reconocimiento.html",
         usuario=current_user,
+        aula=aula,
         cancion=cancion,
         notas=cancion.notas
     )

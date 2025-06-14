@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Piano Trainer en Tiempo Real</title>
+    <title>Piano Trainer</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css"
       rel="stylesheet"
@@ -15,26 +15,22 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
   </head>
-  <body
-    class="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 p-4 md:p-8"
-  >
+  <body class="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 p-4 md:p-8">
     <div class="max-w-6xl mx-auto bg-white p-6 rounded-2xl shadow-md">
       <!-- Encabezado con nombre del alumno y botón volver -->
       <div class="flex justify-between items-center mb-8">
         <div class="flex items-center gap-3">
-          <span class="text-purple-600 text-4xl">🎵</span>
+          <span class="text-green-600 text-4xl">🎵</span>
           <h1 class="text-3xl font-bold text-slate-800">Piano Trainer</h1>
         </div>
         <div class="text-right">
           <p class="text-sm text-slate-500">
             Alumno:
-            <strong class="text-slate-700"
-              >{{ usuario.nombre_completo }}</strong
-            >
+            <strong class="text-slate-700">{{ usuario.nombre_completo }}</strong>
           </p>
           <a
             href="{{ url_for('usuario.dashboard') }}"
-            class="inline-block mt-2 text-sm text-purple-600 hover:underline"
+            class="inline-block mt-2 text-sm text-green-600 hover:underline"
           >
             ← Volver al Dashboard
           </a>
@@ -85,14 +81,14 @@
               <button
                 id="start"
                 onclick="startRecording()"
-                class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg"
+                class="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition"
               >
                 ▶️ Iniciar
               </button>
               <button
                 id="stop"
                 onclick="stopRecording()"
-                class="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg"
+                class="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition"
                 disabled
               >
                 ⏹️ Detener
@@ -105,12 +101,10 @@
         <div class="space-y-6">
           <!-- Nota esperada -->
           <div>
-            <h2 class="text-xl font-semibold text-slate-700 mb-3">
-              Nota esperada
-            </h2>
+            <h2 class="text-xl font-semibold text-slate-700 mb-3">Nota esperada</h2>
             <div
               id="nota_esperada"
-              class="flex items-center justify-center p-6 border-2 border-purple-400 text-purple-600 rounded-xl text-4xl font-bold bg-purple-50"
+              class="flex items-center justify-center p-6 border-2 border-green-400 text-green-600 rounded-xl text-4xl font-bold bg-green-50"
             >
               C
             </div>
@@ -118,9 +112,7 @@
 
           <!-- Nota actual detectada -->
           <div>
-            <h2 class="text-xl font-semibold text-slate-700 mb-3">
-              Nota detectada
-            </h2>
+            <h2 class="text-xl font-semibold text-slate-700 mb-3">Nota detectada</h2>
             <div
               id="nota_actual"
               class="flex items-center justify-center p-6 border-2 border-slate-300 text-slate-600 rounded-xl text-xl bg-slate-100"
@@ -149,8 +141,140 @@
         </div>
       </div>
     </div>
+
     <script>
+      // Ponemos la canción recibida por renderizado de Flask:
       window.song = {{ notas | tojson | safe }};
+
+      // Variables para medir errores, tiempo y precisión:
+      let errorCount = 0;
+      let startTime = null;
+      let songLength = window.song.length;
+
+      // Socket.io ya viene definido en app.js
+      socket.on("nota_detectada", data => {
+        const { nota, feedback, nota_esperada } = data;
+
+        // Empieza a medir el tiempo cuando llega la primera nota esperada
+        if (feedback.includes("(")) {
+          if (!startTime) {
+            startTime = Date.now();
+          }
+        }
+
+        // Si feedback es None (nota incorrecta), incrementamos errores
+        if (feedback === null) {
+          errorCount++;
+        }
+
+        // Mostramos nota_actual y nota_esperada como antes
+        document.getElementById("nota_actual").innerText = nota || "🎹 Esperando...";
+        document.getElementById("nota_esperada").innerText = nota_esperada || "🎯";
+
+        // Actualizamos la barra de progreso y el historial visual
+        if (feedback) {
+          if (feedback.includes("¡Canción completa!")) {
+            // Calculamos duración en segundos
+            const endTime = Date.now();
+            const durationSec = (endTime - (startTime || endTime)) / 1000;
+
+            // Número de aciertos = largo de la canción
+            const correctCount = songLength;
+            // Precision = aciertos / (aciertos + errores)
+            const precision = correctCount / (correctCount + errorCount);
+
+            // Emitimos evento interno para confetti, etc.
+            const progressBar = document.getElementById("progress_bar");
+            const progressText = document.getElementById("progress_text");
+            progressBar.value = 100;
+            progressText.innerText = "¡Completado!";
+
+            confetti({
+              particleCount: 150,
+              spread: 70,
+              origin: { y: 0.6 }
+            });
+
+            // Enviamos al servidor los datos de historial
+            fetch("{{ url_for('historial.registrar') }}", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                cancion_id: {{ cancion.id }},
+                aula_id: {{ aula.id }},
+                precision: precision,
+                errores: errorCount,
+                duracion: durationSec
+              })
+            })
+              .then(response => response.json())
+              .then(resp => {
+                console.log("Historial:", resp);
+              });
+
+            // Reiniciamos contadores
+            errorCount = 0;
+            startTime = null;
+            return;
+          } else {
+            // Extraemos progreso (ej. "🎵 Correcto (3/8)")
+            const match = feedback.match(/\((\d+)\/(\d+)\)/);
+            if (match) {
+              const current = parseInt(match[1]);
+              const total = parseInt(match[2]);
+              const percent = (current / total) * 100;
+              document.getElementById("progress_bar").value = percent;
+              document.getElementById("progress_text").innerText = `${Math.round(percent)}% completado`;
+            }
+          }
+        }
+
+        // Actualizamos el historial de notas en pantalla
+        if (nota) {
+          const noteHistoryDiv = document.getElementById("note_history");
+          const noteElement = document.createElement("div");
+          noteElement.className = "px-3 py-2 bg-green-100 text-green-800 rounded-md text-sm font-medium";
+          noteElement.innerText = nota;
+          noteHistoryDiv.appendChild(noteElement);
+
+          if (noteHistoryDiv.children.length > 10) {
+            noteHistoryDiv.removeChild(noteHistoryDiv.children[0]);
+          }
+        }
+
+        // Efecto visual de tecla activa
+        document.querySelectorAll("#piano_keyboard .piano-key").forEach(keyElem => {
+          keyElem.classList.remove("bg-green-500", "text-white");
+          keyElem.classList.add("bg-white", "text-slate-800");
+        });
+        if (nota) {
+          const activeKey = document.getElementById(`key_${nota}`);
+          if (activeKey) {
+            activeKey.classList.remove("bg-white", "text-slate-800");
+            activeKey.classList.add("bg-green-500", "text-white", "scale-110");
+            setTimeout(() => activeKey.classList.remove("scale-110"), 200);
+          }
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Mostramos la canción en texto y en pantalla tal como tenías en app.js:
+        const songText = document.getElementById("song_text");
+        songText.innerText = window.song.join(" - ");
+        const songDisplay = document.getElementById("song_display");
+        window.song.forEach(note => {
+          const noteElement = document.createElement("div");
+          noteElement.className = "px-4 py-2 bg-slate-200 text-slate-700 rounded-md text-lg font-semibold";
+          noteElement.innerText = note;
+          songDisplay.appendChild(noteElement);
+        });
+
+        // Dibujamos el piano y listado de micrófonos, igual que antes:
+        drawPiano();
+        getMicrophones();
+      });
     </script>
 
     <script src="{{ url_for('static', filename='app.js') }}"></script>

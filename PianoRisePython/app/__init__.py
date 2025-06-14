@@ -10,7 +10,7 @@ from flask_login import LoginManager
 load_dotenv()
 
 # Inicialización de extensiones
-socketio = SocketIO(cors_allowed_origins="*")
+socketio = SocketIO(cors_allowed_origins="*", async_mode="gevent")
 db       = SQLAlchemy()
 migrate  = Migrate()
 login_manager = LoginManager()
@@ -63,5 +63,8 @@ def create_app():
 
     from app.sockets.handlers import register_socketio_events
     register_socketio_events(socketio)
+
+    from app.routes.historial_routes import historial_bp
+    app.register_blueprint(historial_bp)
 
     return app

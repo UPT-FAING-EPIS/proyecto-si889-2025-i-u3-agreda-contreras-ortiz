@@ -5,7 +5,7 @@
 {% block content %}
 <div class="max-w-md mx-auto bg-white p-6 rounded-2xl shadow-md">
   <h2 class="text-2xl font-bold mb-6 text-green-700">Registro de Alumno</h2>
-  <form method="POST">
+  <form method="POST" onsubmit="return validarFormulario()">
     <div class="mb-4">
       <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre completo</label>
       <input type="text" id="nombre" name="nombre"
@@ -23,6 +23,9 @@
     <div class="mb-4">
       <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono</label>
       <input type="text" id="telefono" name="telefono"
+             maxlength="9"
+             pattern="^[0-9]{1,9}$"
+             title="Ingresa solo números, máximo 9 dígitos"
              value="{{ telefono or '' }}"
              class="w-full p-2 border rounded focus:ring-2 focus:ring-green-500" />
     </div>
@@ -30,6 +33,7 @@
       <label for="fecha_nacimiento" class="block text-sm font-medium text-gray-700">Fecha de nacimiento</label>
       <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"
              value="{{ fecha_nacimiento or '' }}"
+             required
              class="w-full p-2 border rounded focus:ring-2 focus:ring-green-500" />
     </div>
     <div class="mb-4">
@@ -56,4 +60,28 @@
     </a>
   </p>
 </div>
+
+<script>
+  // Calcular rango de fechas permitido
+  window.addEventListener('DOMContentLoaded', () => {
+    const hoy = new Date();
+    const anioActual = hoy.getFullYear();
+    const fechaMax = new Date(anioActual - 10, hoy.getMonth(), hoy.getDate()).toISOString().split('T')[0];
+    const fechaMin = new Date(anioActual - 18, hoy.getMonth(), hoy.getDate()).toISOString().split('T')[0];
+
+    const inputFecha = document.getElementById('fecha_nacimiento');
+    inputFecha.max = fechaMax;
+    inputFecha.min = fechaMin;
+  });
+
+  function validarFormulario() {
+    const tel = document.getElementById('telefono').value;
+    const regexTelefono = /^[0-9]{1,9}$/;
+    if (tel && !regexTelefono.test(tel)) {
+      alert('El número de teléfono debe tener solo dígitos y máximo 9 caracteres.');
+      return false;
+    }
+    return true;
+  }
+</script>
 {% endblock %}
