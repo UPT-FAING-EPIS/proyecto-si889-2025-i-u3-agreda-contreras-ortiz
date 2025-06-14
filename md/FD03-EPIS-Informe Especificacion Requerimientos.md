@@ -412,3 +412,212 @@ Este documento establece los objetivos funcionales y técnicos del sistema, así
    | Validación de audio            | El reconocimiento de notas debe ejecutarse de inmediato y sólo evaluará sonidos del instrumento.                                                                          | Sistema       |
 
 ---
+
+
+5. #### **Fases de Desarrollo** {#fases-de-desarrollo}
+
+---
+
+### **Perfiles de Usuario**
+
+- **Estudiantes**  
+   Usuarios principales de la plataforma. Son alumnos de nivel escolar que utilizan PianoRise para aprender piano de forma interactiva y autónoma. Buscan una herramienta fácil de usar, motivadora y con retroalimentación inmediata. Sus actividades incluyen realizar ejercicios, tocar canciones guiadas y revisar su progreso.
+
+- **Docentes**  
+Usuarios con funciones de gestión educativa dentro del sistema. Pueden editar aulas, registrar estudiantes, asignar repertorios y revisar el avance de sus alumnos. Requieren funcionalidades que les permitan intervenir en el proceso de enseñanza y adaptar el contenido al nivel de cada grupo.
+
+- **Administradores**  
+Usuarios con acceso completo al sistema. Su perfil incluye la configuración técnica general de la plataforma, la administración del contenido (como el repertorio de canciones) y el soporte a docentes y estudiantes. También pueden generar reportes y aplicar mejoras continuas al sistema.
+
+---
+
+### **Modelo Conceptual**
+
+#### Diagrama de Paquetes de la Plataforma Web
+
+El diagrama presenta la estructura del sistema PianoRise, organizando sus funcionalidades clave en paquetes como Autenticación, Gestion Docente, Gestion Aula, Interacción Estudiante, Gestion de Canciones, Seguimiento y Reportes. Cada paquete contiene casos de uso específicos que reflejan las acciones disponibles para los usuarios.
+
+<center>
+
+   ![width=500](../media/dg_paquetes.png)  
+
+
+   **Diagrama 02: Diagrama de Paquetes de PianoRise**  
+   *Fuente: Elaboración propia.*
+</center>
+
+---
+
+#### Diagrama de Casos de Uso de la Plataforma Web
+
+Este diagrama de casos de uso representa las funcionalidades del sistema PianoRise. En él se identifican tres actores principales: Estudiante, Docente y Administrador, cada uno con permisos y acciones específicas. Los estudiantes pueden iniciar sesión, gestionar su autenticación, acceder a su aula, seleccionar canciones del repertorio y practicar con evaluación. Los docentes tienen acceso a funcionalidades adicionales como la gestión del repertorio musical, asignación y remoción de canciones en el aula, así como el monitoreo del progreso y la generación de reportes de desempeño. Los administradores, por su parte, gestionan las credenciales de los docentes, incluyendo su creación, edición y deshabilitación.
+
+
+
+<center>
+
+   ![width=500](../media/DiagramaCasosuso.png)  
+
+
+   **Diagrama 03: Diagrama de Casos de Uso**  
+   *Fuente: Elaboración propia.*
+</center>
+
+## c) Escenarios de Caso de Uso (Narrativa)
+
+---
+
+### Narrativa de CU-01: Gestionar Autenticación y Credenciales de Usuario
+
+**Caso de Uso:** CU-01  
+**Nombre:** Gestionar autenticación y credenciales de usuario  
+**Actores:** Estudiante, Docente, Administrador  
+**Descripción:** Permite a un usuario registrarse en el sistema, así como también iniciar sesión con sus credenciales y cerrar sesión de forma segura.  
+**Precondiciones:** -  
+
+#### Acción: Autenticar, Registrar
+
+| ACCIÓN DEL ACTOR                                           | CURSO DEL SISTEMA                                                                                                   |
+|------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| El usuario accede a la plataforma PianoRise desde su navegador. | El sistema muestra la interfaz de inicio de sesión, con campos para correo y contraseña, y botones para ingresar o registrarse. |
+| El usuario completa los campos y selecciona iniciar sesión. | El sistema valida las credenciales. Si son correctas, redirige al panel correspondiente. Si no, muestra error.        |
+
+**Flujo Alternativo – Registrar Usuario**
+
+| ACCIÓN DEL ACTOR                                           | CURSO DEL SISTEMA                                                                                                   |
+|------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| El usuario selecciona la opción de registrarse.            | El sistema muestra el formulario de registro.                                                                       |
+| Completa los campos requeridos y selecciona “Registrarse”.| El sistema valida y registra al usuario, luego lo redirige al inicio de sesión.                                     |
+
+---
+
+### Narrativa de CU-02: Gestionar Aula
+
+**Caso de Uso:** CU-02  
+**Nombre:** Gestionar aula  
+**Actores:** Docente, Estudiante  
+**Descripción:** Permite la administración de aulas virtuales dentro de PianoRise. Los docentes pueden crear, editar, deshabilitar aulas y los estudiantes se unen mediante un código.  
+**Precondiciones:** CU-01  
+
+#### Acción: Crear aula, Unirse a aula
+
+| ACCIÓN DEL ACTOR                             | CURSO DEL SISTEMA                                                                                                   |
+|----------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| Docente accede al módulo de aulas.           | El sistema muestra la lista y opciones (crear, editar, deshabilitar).                                               |
+| Selecciona “Crear aula”.                     | Se muestra formulario con nombre, descripción, configuración inicial y selección de canciones.                      |
+| Completa y guarda.                           | El sistema registra el aula, canciones y genera un código único.                                                    |
+
+**Flujos Alternativos:**
+
+- **Editar Aula**: Docente edita un aula existente → sistema muestra y actualiza datos.
+- **Deshabilitar Aula**: Docente selecciona y confirma deshabilitación → sistema inactiva el aula.
+- **Unirse a Aula**: Estudiante ingresa código → sistema valida y lo une al aula.
+
+---
+
+### Narrativa de CU-03: Seleccionar una canción del repertorio
+
+**Caso de Uso:** CU-03  
+**Nombre:** Seleccionar una canción del repertorio  
+**Actores:** Estudiante  
+**Descripción:** Permite que el estudiante visualice y seleccione una canción del repertorio, con detalles como título, nivel y duración.  
+**Precondiciones:** CU-01, CU-02  
+
+#### Acción: Seleccionar una canción del repertorio
+
+| ACCIÓN DEL ACTOR                      | CURSO DEL SISTEMA                                                                 |
+|---------------------------------------|------------------------------------------------------------------------------------|
+| Accede a la sección “Repertorio”.     | El sistema muestra la lista de canciones.                                          |
+| Explora e inicia práctica de una canción. | El sistema carga la partitura y comienza la evaluación por micrófono.            |
+| Toca el instrumento.                  | El sistema analiza y compara las notas.                                            |
+| Finaliza práctica.                    | El sistema guarda el progreso.                                                    |
+
+---
+
+### Narrativa de CU-04: Gestionar repertorio de canciones
+
+**Caso de Uso:** CU-04  
+**Nombre:** Gestionar repertorio de canciones  
+**Actores:** Docente  
+**Descripción:** Permite agregar o quitar canciones del repertorio del aula.  
+**Precondiciones:** CU-01, CU-02  
+
+#### Acción: Gestionar repertorio de canciones
+
+| ACCIÓN DEL ACTOR                              | CURSO DEL SISTEMA                                                                          |
+|-----------------------------------------------|---------------------------------------------------------------------------------------------|
+| Accede al “Repertorio del aula”.              | El sistema muestra canciones asignadas y opciones de gestión.                              |
+| Selecciona “Agregar canciones”.               | El sistema muestra el repertorio general.                                                  |
+| Selecciona canciones para agregar.            | El sistema las asigna al aula.                                                             |
+| Selecciona una canción del aula y elige “Remover”. | El sistema muestra confirmación, y luego la desasocia del aula.                        |
+
+---
+
+### Narrativa de CU-05: Monitorear progreso de estudiantes
+
+**Caso de Uso:** CU-05  
+**Nombre:** Monitorear progreso de estudiantes  
+**Actores:** Docente  
+**Descripción:** Permite visualizar el progreso individual de cada estudiante: canciones completadas y puntuaciones.  
+**Precondiciones:** CU-01, CU-02  
+
+#### Acción: Monitorear progreso
+
+| ACCIÓN DEL ACTOR                     | CURSO DEL SISTEMA                                                                    |
+|--------------------------------------|---------------------------------------------------------------------------------------|
+| Accede a “Monitorear progreso”.      | El sistema muestra la lista de estudiantes.                                           |
+| Selecciona un estudiante.            | El sistema muestra detalles del progreso y puntuación.                               |
+| Revisa métricas.                     | El sistema presenta gráficos de desempeño.                                           |
+
+---
+
+### Narrativa de CU-06: Generar reportes de desempeño
+
+**Caso de Uso:** CU-06  
+**Nombre:** Generar reportes de desempeño  
+**Actores:** Docente  
+**Descripción:** Permite generar y exportar reportes del progreso del aula, incluyendo gráficos y métricas.  
+**Precondiciones:** CU-01, CU-02  
+
+#### Acción: Generar reportes
+
+| ACCIÓN DEL ACTOR                        | CURSO DEL SISTEMA                                                                 |
+|-----------------------------------------|------------------------------------------------------------------------------------|
+| Accede a “Reportes de desempeño”.       | El sistema muestra filtros y opciones.                                            |
+| Selecciona parámetros.                  | El sistema genera vista previa de gráficos.                                       |
+| Revisa gráficos.                        | El sistema muestra desempeño detallado.                                           |
+| Exporta reporte.                        | El sistema genera archivo PDF y confirma exportación.                             |
+
+---
+
+### Narrativa de CU-07: Gestionar Docente
+
+**Caso de Uso:** CU-07  
+**Nombre:** Gestionar docente  
+**Actores:** Administrador  
+**Descripción:** Permite al administrador registrar, editar y deshabilitar cuentas de docentes.  
+**Precondiciones:** CU-01  
+
+#### Acción: Gestionar credenciales de docente
+
+**Flujo Alternativo – Crear Docente**
+
+| ACCIÓN DEL ACTOR                      | CURSO DEL SISTEMA                                                              |
+|---------------------------------------|---------------------------------------------------------------------------------|
+| Accede a gestión de docentes.         | El sistema muestra la lista con opciones.                                       |
+| Selecciona “Crear docente”.           | El sistema muestra formulario con nombre, correo y contraseña.                 |
+| Completa y confirma.                  | El sistema registra al nuevo docente y muestra mensaje de éxito.               |
+
+**Flujo Alternativo – Editar Docente**
+
+| ACCIÓN DEL ACTOR                      | CURSO DEL SISTEMA                                                              |
+|---------------------------------------|---------------------------------------------------------------------------------|
+| Selecciona docente existente y “Editar”. | El sistema muestra el formulario actual.                                     |
+| Modifica campos y guarda.             | El sistema actualiza los datos y muestra confirmación.                         |
+
+**Flujo Alternativo – Deshabilitar Docente**
+
+| ACCIÓN DEL ACTOR                      | CURSO DEL SISTEMA                                                              |
+|---------------------------------------|---------------------------------------------------------------------------------|
+| Selecciona docente y “Deshabilitar”.  | El sistema solicita confirmación.                                              |
+| Confirma la acción.                   | El sistema desactiva la cuenta del docente.                                     |
