@@ -357,3 +357,30 @@ Diagrama de secuencia CU - 01: Gestionar Autentiación y Credenciales de Usuario
       <br>
   **Fuente:** Elaboración propia.
       </center>
+
+
+## 2.4. Vista de desarrollo
+### Diagrama de paquetes
+Muestra la estructura de directorios del proyecto "PianoRise". Dentro de la carpeta principal, se encuentran varios directorios organizados por funcionalidades.
+
+
+ ![width=500](../media/dg_paquetes.png)
+
+<center>
+**Diagrama 10:**  Diagrama de paquetes de PianoRise.
+      <br>
+**Fuente:** Elaboración propia.
+</center>
+
+
+## 2.3. Vista Física
+### Diagrama de clases:
+El diagrama muestra la interacción entre alumnos y docentes, cada uno con usuario, a su vez se ve la interacción entre aulas, canciones y el historial.
+
+![width=500](../media/dg_clase.png)
+
+<center>
+**Diagrama 11:**   Diagrama de clases de PianoRise.
+      <br>
+**Fuente:** Elaboración propia.
+</center>
