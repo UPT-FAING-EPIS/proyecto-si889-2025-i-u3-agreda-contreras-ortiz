@@ -444,3 +444,17 @@ El diagrama muestra la interacción entre alumnos y docentes, cada uno con usuar
 | RNF-03   | Escalabilidad del sistema      | El sistema debe ser capaz de manejar un aumento en el número de usuarios sin afectar el rendimiento. Se prioriza una arquitectura optimizada para procesamiento en tiempo real de audio y reconocimiento de notas musicales sin latencias significativas. |
 | RNF-04   | Usabilidad de la plataforma    | El sistema debe ofrecer una interfaz intuitiva y accesible, especialmente diseñada para principiantes en el piano.                                                                                                           |
 
+## 5. Vista Lógica
+
+### 5.1. Diagrama Contextual
+Este diagrama contextual muestra las interacciones entre los dos módulos del sistema PianoRise: PianoRise.MVC, encargado de la gestión académica, y PianoRise.Flask, centrado en la práctica musical. Representa cómo los actores externos interactúan con cada módulo, y cómo ambos acceden a una base de datos compartida. Además, el módulo MVC se comunica con un servicio externo de correo electrónico para el envío de notificaciones.
+
+<center>
+
+  ![width=500](../media/dg_contextual.png)  
+
+
+  **Diagrama 12:**  Diagrama contextual de PianoRise.<br>
+  **Fuente:** Elaboración propia.
+</center>
+
