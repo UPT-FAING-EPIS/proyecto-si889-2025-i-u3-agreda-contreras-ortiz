@@ -1,0 +1,66 @@
+@{
+    ViewData["Title"] = "Panel de Administrador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Admin/Index.css" />
+}
+
+<div class="container py-4">
+    <div class="card panel-card">
+        <div class="card-header card-header-custom d-flex justify-content-between align-items-center">
+            <h4 class="title-icon">
+                <i class="bi bi-speedometer2"></i> @ViewData["Title"]
+            </h4>
+            <form asp-controller="Auth" asp-action="Logout" method="post" class="m-0">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-light icon-btn">
+                    <i class="bi bi-box-arrow-right text-danger"></i> Cerrar sesión
+                </button>
+            </form>
+        </div>
+        <div class="card-body bg-white">
+            <p class="mb-4"><strong>Bienvenido,</strong> @User.Identity.Name</p>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <a asp-controller="Usuarios" asp-action="Index" style="text-decoration: none; color: inherit;">
+                        <div class="card border border-success shadow-sm h-100 hoverable-card">
+                            <div class="card-body text-center">
+                                <i class="bi bi-people-fill fs-2 text-success mb-2"></i>
+                                <h5 class="card-title fw-bold">Gestión de Docentes</h5>
+                                <p class="card-text text-muted">Registrar, editar y eliminar cuentas de docentes.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <a asp-controller="Aulas" asp-action="Index" style="text-decoration: none; color: inherit;">
+                        <div class="card border border-success shadow-sm h-100 hoverable-card">
+                            <div class="card-body text-center">
+                                <i class="bi bi-easel2 fs-2 text-success mb-2"></i>
+                                <h5 class="card-title fw-bold">Gestión de Aulas</h5>
+                                <p class="card-text text-muted">Crear, asignar y administrar aulas musicales.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <a asp-controller="Canciones" asp-action="Index" style="text-decoration: none; color: inherit;">
+                        <div class="card border border-success shadow-sm h-100 hoverable-card">
+                            <div class="card-body text-center">
+                                <i class="bi bi-music-note-beamed fs-2 text-success mb-2"></i>
+                                <h5 class="card-title fw-bold">Gestión de Canciones</h5>
+                                <p class="card-text text-muted">Registrar partituras y asignarlas a las aulas.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
