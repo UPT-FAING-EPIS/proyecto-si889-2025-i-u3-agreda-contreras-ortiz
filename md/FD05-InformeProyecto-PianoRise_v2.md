@@ -43,33 +43,26 @@ Integrantes:
 ---
 <br>
 
-**ÍNDICE GENERAL**
+## Índice
 
-[1\. Antecedentes](#Antecedentes)
+1. [Antecedentes](#1-antecedentes)  
+2. [Planteamiento del Problema](#2-planteamiento-del-problema)  
+   a. [Problema](#21-problema)  
+   b. [Justificación](#22-justificación)  
+   c. [Alcance](#23-alcance)  
+3. [Objetivos](#3-objetivos)  
+4. [Marco Teórico](#4-marco-teórico)  
+5. [Desarrollo de la Solución](#5-desarrollo-de-la-solución)  
+   a. [Análisis de Factibilidad](#51-análisis-de-factibilidad)  
+   b. [Tecnología de Desarrollo](#52-tecnología-de-desarrollo)  
+   c. [Metodología de implementación](#53-metodología-de-implementación)  
+6. [Cronograma](#6-cronograma)  
+7. [Presupuesto](#7-presupuesto)  
+8. [Conclusiones](#8-conclusiones)
 
-[2\. Planteamiento del Problema](#heading=h.wh1otg33i288)
+## 1. Antecedentes
 
-[a. Problema](#heading=h.wh1otg33i288)
+La enseñanza del piano en entornos escolares ha enfrentado desafíos relacionados con la falta de recursos tecnológicos adecuados para la práctica individualizada y el seguimiento del progreso estudiantil. A pesar de los avances en plataformas educativas generales, no existen soluciones específicas que integren reconocimiento musical automático con funcionalidades pedagógicas adaptadas a la formación artística.
 
-[b. Justificación](#heading=h.wh1otg33i288)
-
-[c. Alcance](#heading=h.wh1otg33i288)
-
-[3\. Objetivos](#heading=h.wh1otg33i288)
-
-[4\. Marco Teórico](#heading=h.wh1otg33i288)
-
-[5\. Desarrollo de la Solución](#heading=h.wh1otg33i288)
-
-[a. Análisis de Factibilidad](#heading=h.wh1otg33i288)
-
-[a. Tecnologías de Desarrollo](#heading=h.wh1otg33i288)
-
-[a. Metodología de Implementación](#heading=h.wh1otg33i288)
-
-[6\. Cronograma](#heading=h.wh1otg33i288)
-
-[7\. Presupuesto](#heading=h.wh1otg33i288)
-
-[8\. Conclusiones](#heading=h.wh1otg33i288)
+La propuesta de la plataforma web **PianoRise** responde a esta necesidad, ofreciendo una solución integral para el aprendizaje del piano con retroalimentación, seguimiento académico y gestión estructurada de aulas virtuales.
 
