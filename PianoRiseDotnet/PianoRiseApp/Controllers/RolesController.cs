@@ -22,7 +22,7 @@ namespace PianoRiseApp.Controllers
         // GET: Roles
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Roles.ToListAsync());
+            return View(await _context.rol.ToListAsync());
         }
 
         // GET: Roles/Details/5
@@ -33,7 +33,7 @@ namespace PianoRiseApp.Controllers
                 return NotFound();
             }
 
-            var rol = await _context.Roles
+            var rol = await _context.rol
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (rol == null)
             {
@@ -73,7 +73,7 @@ namespace PianoRiseApp.Controllers
                 return NotFound();
             }
 
-            var rol = await _context.Roles.FindAsync(id);
+            var rol = await _context.rol.FindAsync(id);
             if (rol == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace PianoRiseApp.Controllers
                 return NotFound();
             }
 
-            var rol = await _context.Roles
+            var rol = await _context.rol
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (rol == null)
             {
@@ -139,10 +139,10 @@ namespace PianoRiseApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var rol = await _context.Roles.FindAsync(id);
+            var rol = await _context.rol.FindAsync(id);
             if (rol != null)
             {
-                _context.Roles.Remove(rol);
+                _context.rol.Remove(rol);
             }
 
             await _context.SaveChangesAsync();
@@ -151,7 +151,7 @@ namespace PianoRiseApp.Controllers
 
         private bool RolExists(int id)
         {
-            return _context.Roles.Any(e => e.Id == id);
+            return _context.rol.Any(e => e.Id == id);
         }
     }
 }
