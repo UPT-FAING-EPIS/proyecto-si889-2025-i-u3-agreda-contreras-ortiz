@@ -621,3 +621,40 @@ Este diagrama de casos de uso representa las funcionalidades del sistema PianoRi
 |---------------------------------------|---------------------------------------------------------------------------------|
 | Selecciona docente y “Deshabilitar”.  | El sistema solicita confirmación.                                              |
 | Confirma la acción.                   | El sistema desactiva la cuenta del docente.                                     |
+
+   3. ##### **Modelo Lógico** {#modelo-lógico}
+
+      1) ##### Análisis de Objetos {#análisis-de-objetos}
+
+      Objetos Entidad:
+
+      <center>
+
+      ![width=500](../media/entidad.png)
+
+      **Gráfico 03:** Objetos entidad de la plataforma web PianoRise.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+
+      Objetos Frontera:
+
+      <center>
+
+      ![width=500](../media/frontera.png)
+
+      **Gráfico 04:** Objetos frontera de la plataforma web PianoRise.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+
+      Objetos Control:
+
+      <center>
+
+      ![width=500](../media/controlador.png)
+
+      **Gráfico 05:** Objetos control de la plataforma web PianoRise.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
