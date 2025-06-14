@@ -1,0 +1,60 @@
+@model PianoRiseManagement.Models.Cancion
+
+@{
+    ViewData["Title"] = "Eliminar canción";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Canciones/Delete.css" />
+}
+
+<div class="container py-4">
+    <div class="card shadow-sm border-danger form-card mx-auto">
+        <div class="card-header card-header-custom d-flex align-items-center gap-2">
+            <i class="bi bi-trash-fill fs-5"></i>
+            <h4 class="mb-0">@ViewData["Title"]</h4>
+        </div>
+        <div class="card-body">
+            <h5 class="text-danger mb-3">¿Estás seguro de que deseas eliminar esta canción?</h5>
+
+            <dl class="row">
+                <dt class="col-sm-4">Título</dt>
+                <dd class="col-sm-8">@Model.Titulo</dd>
+
+                <dt class="col-sm-4">Nivel</dt>
+                <dd class="col-sm-8">@Model.Nivel</dd>
+
+                <dt class="col-sm-4">Compositor</dt>
+                <dd class="col-sm-8">@Model.Compositor</dd>
+
+                <dt class="col-sm-4">Notas</dt>
+                <dd class="col-sm-8">
+                    @if (Model.Notas?.Any() == true)
+                    {
+                        foreach (var nota in Model.Notas)
+                        {
+                            <span class="nota-chip">@nota</span>
+                        }
+                    }
+                    else
+                    {
+                        <span class="text-muted">Sin notas registradas</span>
+                    }
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex gap-2 mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

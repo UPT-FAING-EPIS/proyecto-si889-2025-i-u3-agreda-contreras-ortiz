@@ -1,0 +1,122 @@
+@model PianoRiseManagement.Models.Cancion
+
+@{
+    ViewData["Title"] = "Editar canción";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Canciones/Edit.css" />
+}
+
+<div class="container py-4">
+    <div class="card shadow-sm">
+        <div class="card-header card-header-custom">
+            <h4 class="title-icon mb-0">
+                <i class="bi bi-pencil-square"></i> @ViewData["Title"]
+            </h4>
+        </div>
+        <div class="card-body bg-white">
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="CreadoEn" />
+
+                <div class="mb-3">
+                    <label asp-for="Titulo" class="form-label"></label>
+                    <input asp-for="Titulo" class="form-control" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Nivel" class="form-label"></label>
+                    <input asp-for="Nivel" type="number" class="form-control" />
+                    <span asp-validation-for="Nivel" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Compositor" class="form-label"></label>
+                    <input asp-for="Compositor" class="form-control" />
+                    <span asp-validation-for="Compositor" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Notas (Ej: DO, RE, MI)</label>
+                    <div class="d-flex align-items-center mb-2 gap-2">
+                        <input type="text" id="notaInput" class="form-control" placeholder="Agregar nota" />
+                        <button type="button" id="addNotaBtn" class="btn btn-primary">+</button>
+                    </div>
+                    <div id="notasContainer" class="mb-2"></div>
+                    <input type="hidden" asp-for="NotasJson" id="Notas" name="NotasJson" />
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Estado" class="form-label"></label>
+                    <select asp-for="Estado" class="form-select">
+                        <option value="true" selected="@Model.Estado">Activa</option>
+                        <option value="false" selected="!@Model.Estado">Inactiva</option>
+                    </select>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-save"></i> Actualizar
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        let notas = @Html.Raw(Json.Serialize(Model.Notas ?? new List<string>()));
+
+        function renderChips() {
+            const container = document.getElementById('notasContainer');
+            const hidden = document.getElementById('Notas');
+            container.innerHTML = '';
+
+            notas.forEach((nota, index) => {
+                const chip = document.createElement('span');
+                chip.className = 'chip';
+                chip.textContent = nota;
+
+                const closeBtn = document.createElement('button');
+                closeBtn.type = 'button';
+                closeBtn.textContent = '×';
+                closeBtn.onclick = () => {
+                    notas.splice(index, 1);
+                    renderChips();
+                };
+
+                chip.appendChild(closeBtn);
+                container.appendChild(chip);
+            });
+
+            hidden.value = JSON.stringify(notas);
+        }
+
+        document.getElementById('addNotaBtn').addEventListener('click', () => {
+            const input = document.getElementById('notaInput');
+            let nota = input.value.trim().toUpperCase();
+            if (nota) {
+                notas.push(nota);
+                renderChips();
+                input.value = '';
+            }
+        });
+
+        document.getElementById('notaInput').addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.getElementById('addNotaBtn').click();
+            }
+        });
+
+        renderChips(); // Renderiza al cargar
+    </script>
+}
