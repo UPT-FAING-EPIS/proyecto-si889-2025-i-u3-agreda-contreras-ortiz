@@ -458,3 +458,18 @@ Este diagrama contextual muestra las interacciones entre los dos módulos del si
   **Fuente:** Elaboración propia.
 </center>
 
+
+## 6. Vista de Procesos
+### 6.1. Diagrama de Proceso Actual
+"El sistema actual no cuenta con un flujo definido. PianoRise viene a estructurar este proceso."
+
+### 6.2. Diagrama de Proceso Propuesto
+
+<center>
+
+  ![width=500](../media/DiagramaProcesoPropuesto.png)    
+
+
+  **Diagrama 13:**  El diagrama representa el flujo de PianoRise.<br>
+  **Fuente:** Elaboración propia.
+</center>
