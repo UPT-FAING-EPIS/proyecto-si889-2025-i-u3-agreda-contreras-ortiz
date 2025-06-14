@@ -1,0 +1,77 @@
+@model PianoRiseManagement.ViewModels.DocenteEditViewModel
+
+@{
+    ViewData["Title"] = "Editar Docente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="~/css/Usuarios/Edit.css" rel="stylesheet" />
+}
+
+<div class="container py-4">
+    <div class="card edit-card mx-auto">
+        <div class="card-header card-header-custom">
+            <h4 class="mb-0">
+                <i class="bi bi-pencil-fill"></i> @ViewData["Title"]
+            </h4>
+        </div>
+        <div class="card-body bg-white">
+            <form asp-action="Edit" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="Id" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="NombreCompleto" class="form-label">Nombre completo</label>
+                    <input asp-for="NombreCompleto" class="form-control" />
+                    <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="CorreoElectronico" class="form-label">Correo electrónico</label>
+                    <input asp-for="CorreoElectronico" class="form-control" />
+                    <span asp-validation-for="CorreoElectronico" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="NuevaContrasena" class="form-label">Nueva contraseña</label>
+                    <input asp-for="NuevaContrasena" type="password" class="form-control" />
+                    <span asp-validation-for="NuevaContrasena" class="text-danger"></span>
+                    <div class="form-text">Déjalo en blanco para conservar la contraseña actual.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ConfirmarContrasena" class="form-label">Confirmar contraseña</label>
+                    <input asp-for="ConfirmarContrasena" type="password" class="form-control" />
+                    <span asp-validation-for="ConfirmarContrasena" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Telefono" class="form-label">Teléfono</label>
+                    <input asp-for="Telefono" class="form-control" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-4">
+                    <input asp-for="EstaActivo" class="form-check-input" id="activoCheck" />
+                    <label class="form-check-label" for="activoCheck">Activo</label>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-check-circle"></i> Guardar Cambios
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left-circle"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

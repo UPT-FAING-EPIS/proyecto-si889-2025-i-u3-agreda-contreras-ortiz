@@ -1,0 +1,59 @@
+@model PianoRiseManagement.Models.Usuario
+
+@{
+    ViewData["Title"] = "Detalles de Docente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="~/css/Usuarios/Details.css" rel="stylesheet" />
+}
+
+<div class="container py-4">
+    <div class="card details-card mx-auto">
+        <div class="card-header card-header-custom">
+            <h4 class="mb-0">
+                <i class="bi bi-person-lines-fill"></i> @ViewData["Title"]
+            </h4>
+        </div>
+        <div class="card-body bg-white">
+            <dl class="row mb-4">
+                <dt class="col-sm-4">Nombre completo</dt>
+                <dd class="col-sm-8">@Model.NombreCompleto</dd>
+
+                <dt class="col-sm-4">Correo electrónico</dt>
+                <dd class="col-sm-8">@Model.CorreoElectronico</dd>
+
+                <dt class="col-sm-4">Rol</dt>
+                <dd class="col-sm-8">@Model.Rol?.Nombre</dd>
+
+                <dt class="col-sm-4">Teléfono</dt>
+                <dd class="col-sm-8">@Model.Telefono</dd>
+
+                <dt class="col-sm-4">Fecha de nacimiento</dt>
+                <dd class="col-sm-8">@Model.FechaNacimiento?.ToShortDateString()</dd>
+
+                <dt class="col-sm-4">Activo</dt>
+                <dd class="col-sm-8">
+                    @if (Model.EstaActivo)
+                    {
+                        <span class="badge bg-success">Sí</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">No</span>
+                    }
+                </dd>
+            </dl>
+
+            <div class="d-flex justify-content-between">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+                    <i class="bi bi-pencil-square"></i> Editar
+                </a>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left-circle"></i> Volver
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
