@@ -130,3 +130,15 @@ La enseñanza del piano en contextos escolares carece de un sistema especializad
 - Monitoreo del avance estudiantil por parte del docente.
 - Reportes automatizados con gráficos y exportación a PDF.
 
+## 4. Marco Teórico
+
+El aprendizaje musical asistido por tecnologías interactivas ha evolucionado significativamente en la última década. Estudios como los de Collins (2020) y Tanaka et al. (2021) destacan la importancia de herramientas de retroalimentación automática en el desarrollo de habilidades instrumentales.
+
+En este contexto, sistemas de reconocimiento de audio han sido empleados exitosamente en entornos educativos para evaluar la precisión de ejecución de instrumentos como piano, guitarra y violín.
+
+El reconocimiento de notas musicales mediante procesamiento digital de señales se apoya en librerías como Librosa o Essentia, capaces de identificar frecuencias fundamentales y transformarlas en notación musical (Smith, 2019). Estas tecnologías permiten comparar la ejecución del estudiante con una partitura de referencia, generando reportes objetivos sobre errores, precisión y mejora.
+
+En términos pedagógicos, la gamificación, la retroalimentación inmediata y el aprendizaje autónomo son principios clave que sustentan plataformas como Simply Piano y Yousician, aunque estas carecen de gestión académica por parte del docente (Lopez et al., 2023).
+
+**PianoRise** se diferencia al combinar capacidades de seguimiento estructurado, asignación de repertorio y visualización de avances, lo que responde a los principios del modelo de enseñanza musical estructurada (Gordon, 2017).
+
