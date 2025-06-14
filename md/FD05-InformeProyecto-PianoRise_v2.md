@@ -112,3 +112,21 @@ La enseñanza del piano en contextos escolares carece de un sistema especializad
 - No incluye evaluación avanzada o teoría musical compleja.
 - No se integrará con plataformas externas.
 
+## 3. Objetivos
+
+### Objetivo General
+
+> Desarrollar una plataforma web interactiva para el aprendizaje autónomo del piano con reconocimiento de notas musicales denominado **PianoRise**.
+
+### Objetivos Específicos
+
+- Módulo de autenticación y gestión de credenciales.
+- Gestión de aulas virtuales con código de acceso.
+- Registro y administración de docentes.
+- Captura de audio y reconocimiento de notas.
+- Selección de canciones desde el repertorio.
+- Gestión del repertorio general por el administrador.
+- Registro de progreso y errores cometidos.
+- Monitoreo del avance estudiantil por parte del docente.
+- Reportes automatizados con gráficos y exportación a PDF.
+
