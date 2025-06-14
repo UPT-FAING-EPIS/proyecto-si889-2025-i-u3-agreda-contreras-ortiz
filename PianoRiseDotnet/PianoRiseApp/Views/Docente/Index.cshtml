@@ -1,0 +1,60 @@
+@model IEnumerable<PianoRiseManagement.Models.Aula>
+
+@{
+    ViewData["Title"] = "Panel de Docente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Docente/Index.css" />
+}
+
+<div class="container py-4">
+    <div class="card table-card">
+        <div class="card-header card-header-custom d-flex justify-content-between align-items-center">
+            <h4 class="title-icon">
+                <i class="bi bi-easel2-fill"></i> @ViewData["Title"]
+            </h4>
+            <form asp-controller="Auth" asp-action="Logout" method="post" class="m-0">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-light icon-btn">
+                    <i class="bi bi-box-arrow-right text-danger"></i> Cerrar sesión
+                </button>
+            </form>
+        </div>
+
+        <div class="card-body bg-white">
+            <p class="mb-4"><strong>Bienvenido,</strong> @User.Identity.Name</p>
+
+            @if (!Model.Any())
+            {
+                <div class="alert alert-info text-center">
+                    No tienes aulas asignadas todavía.
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    @foreach (var aula in Model)
+                    {
+                        <div class="col-md-6 mb-4">
+                            <a href="@Url.Action("DetalleAula", "Docente", new { id = aula.Id })" target="_blank" title="Abrir aula en nueva pestaña" class="text-decoration-none text-dark">
+                                <div class="card border border-success shadow-sm h-100 hoverable-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success fw-bold">
+                                            Aula: @aula.Grado° @aula.Seccion
+                                        </h5>
+                                        <p class="card-text">@aula.Descripcion</p>
+                                        <p class="text-muted mb-0">
+                                            <small><strong>Creado el:</strong> @aula.CreadoEn.ToString("dd/MM/yyyy HH:mm")</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
