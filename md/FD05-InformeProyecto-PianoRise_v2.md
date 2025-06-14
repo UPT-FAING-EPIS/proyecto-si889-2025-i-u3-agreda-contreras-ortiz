@@ -210,3 +210,11 @@ Se empleó la metodología ágil **Scrum** en 5 sprints:
 > **Tabla 01**. Tabla de los costos totales para el desarrollo de la plataforma PianoRise.  
 > **Fuente**: Elaboración propia.
 
+## 8. Conclusiones
+
+- **PianoRise** representa una solución innovadora para el aprendizaje del piano, combinando reconocimiento musical automático con gestión académica digital.
+- El uso de tecnologías como ASP.NET y Python permitió desarrollar un sistema robusto, escalable y con retroalimentación en tiempo real.
+- La integración de módulos para docentes y estudiantes logró una experiencia personalizada, intuitiva y pedagógicamente enriquecedora.
+- La implementación en nube (Azure) asegura disponibilidad, rendimiento y bajo costo para instituciones educativas con recursos limitados.
+- El sistema está preparado para futuras expansiones como gamificación, competiciones musicales o inclusión de otros instrumentos.
+
