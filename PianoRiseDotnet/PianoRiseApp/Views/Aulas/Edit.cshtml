@@ -1,0 +1,87 @@
+@model PianoRiseManagement.Models.Aula
+
+@{
+    ViewData["Title"] = "Editar Aula";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Aulas/Edit.css" />
+}
+
+<div class="form-container">
+    <div class="card form-card">
+        <div class="card-header card-header-custom">
+            <h4><i class="bi bi-pencil-square"></i> @ViewData["Title"]</h4>
+        </div>
+        <div class="card-body">
+            @if (!ViewData.ModelState.IsValid && ViewData.ModelState[string.Empty]?.Errors.Count > 0)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                </div>
+            }
+
+            <h5 class="text-muted mb-4">Modifique los datos necesarios</h5>
+
+            <form asp-action="Edit">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="Grado" class="form-label"></label>
+                    <input asp-for="Grado" class="form-control" />
+                    <span asp-validation-for="Grado" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Seccion" class="form-label"></label>
+                    <input asp-for="Seccion" class="form-control" maxlength="1" />
+                    <span asp-validation-for="Seccion" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Descripcion" class="form-label"></label>
+                    <textarea asp-for="Descripcion" class="form-control"></textarea>
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Anio" class="form-label"></label>
+                    <input asp-for="Anio" class="form-control" />
+                    <span asp-validation-for="Anio" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Codigo" class="form-label"></label>
+                    <input asp-for="Codigo" class="form-control" maxlength="4" />
+                    <span asp-validation-for="Codigo" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input asp-for="Estado" class="form-check-input" />
+                    <label asp-for="Estado" class="form-check-label"></label>
+                    <span asp-validation-for="Estado" class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="DocenteId" class="form-label">Docente</label>
+                    <select asp-for="DocenteId" class="form-control" asp-items="ViewBag.DocenteId"></select>
+                    <span asp-validation-for="DocenteId" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-end gap-2">
+                    <button type="submit" class="btn btn-green-glow">
+                        <i class="bi bi-check-circle"></i> Guardar cambios
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

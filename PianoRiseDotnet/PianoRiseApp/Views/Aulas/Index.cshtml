@@ -1,0 +1,65 @@
+@model IEnumerable<PianoRiseManagement.Models.Aula>
+
+@{
+    ViewData["Title"] = "Gestión de Aulas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Aulas/Index.css" />
+}
+
+<div class="container py-4">
+    <div class="card table-card">
+        <div class="card-header card-header-custom d-flex justify-content-between align-items-center">
+            <h4 class="title-icon">
+                <i class="bi bi-building"></i> @ViewData["Title"]
+            </h4>
+            <a asp-action="Create" class="btn btn-light icon-btn">
+                <i class="bi bi-plus-circle text-success"></i> Registrar nueva Aula
+            </a>
+        </div>
+
+        <div class="card-body bg-white">
+            <a asp-controller="Admin" asp-action="Index" class="btn btn-sm btn-outline-secondary mb-3">
+                <i class="bi bi-arrow-left"></i> Volver
+            </a>
+
+            @if (!Model.Any())
+            {
+                <div class="alert alert-info text-center">
+                    No hay aulas registradas todavía.
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    @foreach (var aula in Model)
+                    {
+                        <div class="col-md-6 mb-4">
+                            <div class="card border border-success shadow-sm h-100 hoverable-card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success fw-bold">
+                                        Aula: @aula.Grado° @aula.Seccion
+                                    </h5>
+                                    <p class="card-text">@aula.Descripcion</p>
+                                    <p class="mb-2"><strong>Docente:</strong> @aula.Docente?.NombreCompleto</p>
+                                    <p class="mb-2"><strong>Año:</strong> @aula.Anio</p>
+                                    <p class="mb-2"><strong>Estado:</strong> @(aula.Estado ? "Activa" : "Inactiva")</p>
+                                    <p class="text-muted">
+                                        <small><strong>Creado el:</strong> @aula.CreadoEn.ToString("dd/MM/yyyy HH:mm")</small>
+                                    </p>
+                                    <div class="mt-3 d-flex gap-2">
+                                        <a asp-action="Details" asp-route-id="@aula.Id" class="btn btn-sm btn-info">Ver</a>
+                                        <a asp-action="Edit" asp-route-id="@aula.Id" class="btn btn-sm btn-primary">Editar</a>
+                                        <a asp-action="Delete" asp-route-id="@aula.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>

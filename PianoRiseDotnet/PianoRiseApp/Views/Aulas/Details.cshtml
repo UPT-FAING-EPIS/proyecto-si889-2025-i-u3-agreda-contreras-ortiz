@@ -1,0 +1,54 @@
+@model PianoRiseManagement.Models.Aula
+
+@{
+    ViewData["Title"] = "Detalle del Aula";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Aulas/Details.css" />
+}
+
+<div class="details-container">
+    <div class="card details-card">
+        <div class="card-header card-header-custom">
+            <h4><i class="bi bi-info-circle-fill"></i> @ViewData["Title"]</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">Grado</dt>
+                <dd class="col-sm-8">@Model.Grado</dd>
+
+                <dt class="col-sm-4">Sección</dt>
+                <dd class="col-sm-8">@Model.Seccion</dd>
+
+                <dt class="col-sm-4">Descripción</dt>
+                <dd class="col-sm-8">@Model.Descripcion</dd>
+
+                <dt class="col-sm-4">Año</dt>
+                <dd class="col-sm-8">@Model.Anio</dd>
+
+                <dt class="col-sm-4">Código</dt>
+                <dd class="col-sm-8">@Model.Codigo</dd>
+
+                <dt class="col-sm-4">Estado</dt>
+                <dd class="col-sm-8">@(Model.Estado ? "Activa" : "Inactiva")</dd>
+
+                <dt class="col-sm-4">Docente</dt>
+                <dd class="col-sm-8">@Model.Docente?.NombreCompleto</dd>
+
+                <dt class="col-sm-4">Fecha de creación</dt>
+                <dd class="col-sm-8">@Model.CreadoEn.ToString("dd/MM/yyyy HH:mm")</dd>
+            </dl>
+
+            <div class="d-flex justify-content-end gap-2 mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                    <i class="bi bi-pencil-square"></i> Editar
+                </a>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Volver a la lista
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
