@@ -10,15 +10,15 @@
 
  **Plataforma Web Interactiva para el Aprendizaje Autónomo del Piano con Reconocimiento de Notas Musicales \- PianoRise**
 
-Curso: *Patrones de Software*
+Curso: Patrones de Software
 
 Docente: *Mag. Patrick Cuadros Quiroga*
 
 Integrantes:
 
- ***Agreda Ramirez, Jesús Eduardo 	(2021069823)***  
-***Contreras Lipa, Alvaro Javier            (2021070020)***  
-***Ortiz Fernandez, Ximena Andrea	(2021071080)***
+***Agreda Ramirez, Jesús Eduardo 	 (2021069823)***  
+***Contreras Lipa, Alvaro Javier   (2021070020)***  
+***Ortiz Fernandez, Ximena Andrea	 (2021071080)***
 
 **Tacna – Perú**  
 **2025**

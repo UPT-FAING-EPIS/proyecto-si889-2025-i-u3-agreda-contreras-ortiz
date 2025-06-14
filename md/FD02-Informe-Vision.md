@@ -12,7 +12,7 @@
 
 ***Plataforma Web Interactiva para el Aprendizaje Autónomo del Piano con Reconocimiento de Notas en Tiempo Real \- PianoRise***
 
-Curso: *Patrones de Software*
+Curso: Patrones de Software
 
 Docente: *Mag. Patrick Cuadros Quiroga*
 

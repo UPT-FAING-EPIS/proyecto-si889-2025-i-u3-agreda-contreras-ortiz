@@ -18,7 +18,7 @@ Docente: *Mag. Patrick Cuadros Quiroga*
 
 Integrantes:
 
- ***Agreda Ramirez, Jesús Eduardo 	(2021069823)***  
+***Agreda Ramirez, Jesús Eduardo 	(2021069823)***  
 ***Contreras Lipa, Alvaro Javier    (2021070020)***  
 ***Ortiz Fernandez, Ximena Andrea 	(2021071080)***
 
