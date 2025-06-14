@@ -737,3 +737,82 @@ Este diagrama de casos de uso representa las funcionalidades del sistema PianoRi
       <br>
       **Fuente:** Elaboración propia.
       </center>
+   
+      3) ##### Diagrama Secuencia {#diagrama-secuencia}
+
+      <center>
+      
+      Diagrama de secuencia CU - 01: Gestionar Autentiación y Credenciales de Usuario
+      
+      ![width=500](../media/secuencia-1.png)
+
+      **Diagrama 11:**  Diagrama de secuencia del caso de uso 01.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+
+      <center>
+      
+      Diagrama de secuencia CU - 02: Gestionar Autentiación y Credenciales de Usuario
+      
+      ![width=500](../media/secuencia-2.png)
+
+      **Diagrama 12:**  Diagrama de secuencia del caso de uso 02.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+
+      <center>
+      
+      Diagrama de secuencia CU - 03: Gestionar Autentiación y Credenciales de Usuario
+      
+      ![width=500](../media/secuencia-3.png)
+
+      **Diagrama 13:**  Diagrama de secuencia del caso de uso 03.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+
+      <center>
+      
+      Diagrama de secuencia CU - 04: Gestionar Autentiación y Credenciales de Usuario
+      
+      ![width=500](../media/secuencia-4.png)
+
+      **Diagrama 14:**  Diagrama de secuencia del caso de uso 04.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+
+      <center>
+      
+      Diagrama de secuencia CU - 05: Gestionar Autentiación y Credenciales de Usuario
+      
+      ![width=500](../media/secuencia-5.png)
+
+      **Diagrama 15:**  Diagrama de secuencia del caso de uso 05.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+
+      <center>
+      
+      Diagrama de secuencia CU - 06: Gestionar Autentiación y Credenciales de Usuario
+      
+      ![width=500](../media/secuencia-6.png)
+
+      **Diagrama 16:**  Diagrama de secuencia del caso de uso 06.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
+
+      <center>
+      
+      Diagrama de secuencia CU - 07: Gestionar Autentiación y Credenciales de Usuario
+      
+      ![width=500](../media/secuencia-7.png)
+
+      **Diagrama 17:**  Diagrama de secuencia del caso de uso 07.
+      <br>
+      **Fuente:** Elaboración propia.
+      </center>
