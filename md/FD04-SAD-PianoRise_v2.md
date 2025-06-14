@@ -501,3 +501,16 @@ Este diagrama de contenedor muestra la arquitectura de un sistema donde un dispo
   **Fuente:** Elaboración propia.
 </center>
 
+
+## 9. Vista de Datos
+### 9.1. Diagrama Entidad Relación 
+  El diagrama entidad-relación representa la estructura de la base de datos del sistema PianoRise, diseñado para el aprendizaje autodidacta del piano. El modelo incluye entidades como usuario, que gestiona la información personal y se relaciona con rol para definir permisos; aula, asociada a un docente y que agrupa a estudiantes mediante la relación alumno_aula; y cancion, que almacena piezas musicales asignadas a aulas a través de aula_cancion. Además, la entidad historial registra el desempeño del estudiante en cada canción, incluyendo precisión, errores y duración. Este diseño permite organizar aulas, gestionar contenido musical y monitorear el progreso de los alumnos.
+
+<center>
+
+  ![width=500](../media/diagramaER.png)    
+
+
+  **Diagrama 16:**  Diagrama entidad relación de PianoRise.<br>
+  **Fuente:** Elaboración propia.
+</center>
