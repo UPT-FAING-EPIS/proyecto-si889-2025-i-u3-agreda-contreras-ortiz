@@ -142,3 +142,43 @@ En términos pedagógicos, la gamificación, la retroalimentación inmediata y e
 
 **PianoRise** se diferencia al combinar capacidades de seguimiento estructurado, asignación de repertorio y visualización de avances, lo que responde a los principios del modelo de enseñanza musical estructurada (Gordon, 2017).
 
+## 5. Desarrollo de la Solución
+
+### 5.1 Análisis de Factibilidad
+
+#### Factibilidad técnica
+
+El sistema se desarrolla utilizando ASP.NET (MVC) para el backend y frontend, y Python con Flask para el reconocimiento de notas musicales. Se despliega en Azure App Service, con PostgreSQL como base de datos relacional y contenedores Docker para modularidad. Todas las herramientas son compatibles con los entornos de desarrollo actuales (Windows 10/11) y permiten escalabilidad futura.
+
+#### Factibilidad económica
+
+El costo total estimado es de **S/. 33,960**, distribuido en infraestructura (Azure y NeonTech) y sueldos de desarrollo (3 integrantes, 4 meses). Se han mitigado costos mediante el uso de licencias gratuitas y servicios en la nube de bajo costo.
+
+#### Factibilidad operativa
+
+El sistema puede ser operado por docentes sin conocimientos técnicos avanzados, gracias a su interfaz intuitiva. Requiere únicamente acceso a navegador web y micrófono. La carga operativa es baja, con mantenimiento semestral y actualizaciones incrementales.
+
+### 5.2 Tecnología de Desarrollo
+
+| Componente               | Tecnología                             |
+|--------------------------|-----------------------------------------|
+| Frontend / Backend       | ASP.NET MVC + Tailwind CSS              |
+| Reconocimiento de notas  | Python (Flask) + Librosa                |
+| Base de datos            | PostgreSQL (NeonTech)                   |
+| Hospedaje                | Azure App Service                       |
+| Contenedores             | Docker                                  |
+| Infraestructura          | Terraform                               |
+| Entornos de desarrollo   | Visual Studio 2022, Visual Studio Code  |
+
+### 5.3 Metodología de implementación
+
+Se empleó la metodología ágil **Scrum** en 5 sprints:
+
+| Sprint | Actividad Principal                                  |
+|--------|-------------------------------------------------------|
+| 1      | Requisitos y diseño de interfaz                      |
+| 2      | Autenticación y gestión de usuarios                  |
+| 3      | Aulas virtuales, repertorio y reconocimiento básico  |
+| 4      | Monitoreo, historial y reportes                      |
+| 5      | Pruebas, mejoras e integración final                 |
+
