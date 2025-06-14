@@ -487,3 +487,17 @@ Este diagrama de contenedor muestra la arquitectura de un sistema donde un dispo
   **Diagrama 14:**  Diagrama de contenedor de PianoRise.<br>
   **Fuente:** Elaboración propia.
 </center>
+
+## 8. Vista de Implementación
+### 8.1. Diagrama de Componentes 
+  Este diagrama proporciona una vista más detallada de los componentes del proyecto PianoRise, facilitando la comprensión de su estructura y organización.
+
+<center>
+
+  ![width=500](../media/dg_componentes.png)    
+
+
+  **Diagrama 15:**  Diagrama de componentes de PianoRise.<br>
+  **Fuente:** Elaboración propia.
+</center>
+
