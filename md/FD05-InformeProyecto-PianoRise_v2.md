@@ -66,3 +66,49 @@ La enseñanza del piano en entornos escolares ha enfrentado desafíos relacionad
 
 La propuesta de la plataforma web **PianoRise** responde a esta necesidad, ofreciendo una solución integral para el aprendizaje del piano con retroalimentación, seguimiento académico y gestión estructurada de aulas virtuales.
 
+## 2. Planteamiento del Problema
+
+### 2.1 Problema
+
+La enseñanza del piano en contextos escolares carece de un sistema especializado que permita la práctica autónoma, el seguimiento estructurado del progreso musical y la gestión académica eficiente, lo cual limita el aprendizaje y dificulta la labor del docente.
+
+**Problemáticas específicas**:
+
+- **Ausencia de herramientas tecnológicas** adaptadas a la enseñanza musical escolar.
+- **Seguimiento manual y disperso** del progreso del alumno.
+- **Repertorios desorganizados y no personalizados**.
+- **Falta de reportes automatizados**.
+- **Experiencia poco motivadora** para los alumnos.
+
+### 2.2 Justificación
+
+**PianoRise** responde directamente a las carencias actuales mediante las siguientes contribuciones clave:
+
+- Reconocimiento de notas musicales en tiempo real.  
+- Seguimiento personalizado del avance del estudiante.  
+- Gestión académica estructurada por aulas.  
+- Reportes automatizados con métricas visuales.  
+- Accesibilidad desde cualquier navegador moderno.
+
+### 2.3 Alcance
+
+#### Inclusiones
+
+- Desarrollo de una **plataforma web** accesible desde navegadores modernos.
+- Funcionalidades clave:
+  - Gestión de usuarios y autenticación.
+  - Reconocimiento de notas musicales.
+  - Repertorio general y asignación de canciones.
+  - Retroalimentación visual y auditiva.
+  - Gestión y código de acceso a aulas.
+  - Registro del progreso del estudiante.
+  - Monitoreo docente.
+  - Generación de reportes.
+
+#### Exclusiones
+
+- No incluye aplicaciones móviles.
+- No contempla enseñanza de otros instrumentos.
+- No incluye evaluación avanzada o teoría musical compleja.
+- No se integrará con plataformas externas.
+
