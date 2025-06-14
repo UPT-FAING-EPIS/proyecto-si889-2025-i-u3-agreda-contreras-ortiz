@@ -1,38 +1,57 @@
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using PianoRiseManagement.Models;
 
 namespace PianoRiseManagement.Models
 {
+    [Table("usuario")]
     public class Usuario
     {
+        [Key]
+        [Column("id")]
         public int Id { get; set; }
 
-        [Required]
-        public string Nombre { get; set; } = null!;
+        [Required(ErrorMessage = "El nombre completo es obligatorio.")]
+        [MaxLength(100)]
+        [RegularExpression(@"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", ErrorMessage = "El nombre solo debe contener letras y espacios.")]
+        [Column("nombre_completo")]
+        public string NombreCompleto { get; set; } = null!;
 
         [Required]
-        public string Apellido { get; set; } = null!;
+        [MaxLength(100)]
+        [EmailAddress]
+        [Column("correo_electronico")]
+        public string CorreoElectronico { get; set; } = null!;
 
         [Required]
-        public string UsuarioNombre { get; set; } = null!;
+        [MaxLength(500)]
+        [Column("contrasena_hash")]
+        public string ContrasenaHash { get; set; } = null!;
 
-        [Required]
-        public string Contrasena { get; set; } = null!;
-
-        [Required, EmailAddress]
-        public string Correo { get; set; } = null!;
-
-        [ForeignKey("Rol")]
+        [Column("rol_id")]
         public int RolId { get; set; }
 
-        public bool Activo { get; set; }
-        public DateTime CreadoEn { get; set; }
+        [ForeignKey(nameof(RolId))]
+        public Rol? Rol { get; set; }
 
-        public Rol Rol { get; set; } = null!;
+        [MaxLength(15)]
+        [RegularExpression(@"^\d{9}$", ErrorMessage = "El teléfono debe tener 9 dígitos.")]
+        [Column("telefono")]
+        public string? Telefono { get; set; }
 
-        public ICollection<Aula> Aulas { get; set; } = new List<Aula>();
-        public ICollection<Historial> Historiales { get; set; } = new List<Historial>();
-        public ICollection<AlumnoAula> AlumnoAulas { get; set; } = new List<AlumnoAula>();
+        [Column("fecha_registro")]
+        public DateTime FechaRegistro { get; set; } = DateTime.Now;
+
+        [DataType(DataType.Date)]
+        [Column("fecha_nacimiento")]
+        public DateTime? FechaNacimiento { get; set; }
+
+        [Column("esta_activo")]
+        public bool EstaActivo { get; set; } = true;
+
+        public ICollection<Aula>? AulasDocente { get; set; }
+        public ICollection<AlumnoAula>? AlumnoAulas { get; set; }
+        public ICollection<Historial>? Historiales { get; set; }
     }
 }
