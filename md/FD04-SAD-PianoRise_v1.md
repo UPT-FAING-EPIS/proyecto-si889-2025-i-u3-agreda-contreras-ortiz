@@ -276,3 +276,84 @@ Este diagrama proporciona una vista más detallada de los componentes del proyec
   **Diagrama 02:** Diagrama de Componentes de PianoRise.<br>
   **Fuente:** Elaboración propia.
 </center>
+
+## 2.3. Vista del Proceso
+
+ #### Diagrama Secuencia {#diagrama-secuencia}
+
+<center>
+      
+Diagrama de secuencia CU - 01: Gestionar Autentiación y Credenciales de Usuario
+      
+  ![width=500](../media/secuencia-1.png)
+
+  **Diagrama 03:**  Diagrama de secuencia del caso de uso 01.
+      <br>
+  **Fuente:** Elaboración propia.
+  </center>
+
+  <center>
+      
+  Diagrama de secuencia CU - 02: Gestionar Autentiación y Credenciales de Usuario
+      
+  ![width=500](../media/secuencia-2.png)
+
+  **Diagrama 04:**  Diagrama de secuencia del caso de uso 02.
+      <br>
+  **Fuente:** Elaboración propia.
+      </center>
+
+  <center>
+      
+  Diagrama de secuencia CU - 03: Gestionar Autentiación y Credenciales de Usuario
+      
+  ![width=500](../media/secuencia-3.png)
+
+  **Diagrama 05:**  Diagrama de secuencia del caso de uso 03.
+      <br>
+  **Fuente:** Elaboración propia.
+      </center>
+
+  <center>
+      
+  Diagrama de secuencia CU - 04: Gestionar Autentiación y Credenciales de Usuario
+      
+  ![width=500](../media/secuencia-4.png)
+
+  **Diagrama 06:**  Diagrama de secuencia del caso de uso 04.
+      <br>
+  **Fuente:** Elaboración propia.
+  </center>
+
+  <center>
+      
+  Diagrama de secuencia CU - 05: Gestionar Autentiación y Credenciales de Usuario
+      
+  ![width=500](../media/secuencia-5.png)
+
+  **Diagrama 07:**  Diagrama de secuencia del caso de uso 05.
+      <br>
+  **Fuente:** Elaboración propia.
+      </center>
+
+  <center>
+      
+  Diagrama de secuencia CU - 06: Gestionar Autentiación y Credenciales de Usuario
+      
+  ![width=500](../media/secuencia-6.png)
+
+  **Diagrama 08:**  Diagrama de secuencia del caso de uso 06.
+      <br>
+  **Fuente:** Elaboración propia.
+      </center>
+
+  <center>
+      
+  Diagrama de secuencia CU - 07: Gestionar Autentiación y Credenciales de Usuario
+      
+  ![width=500](../media/secuencia-7.png)
+
+  **Diagrama 09:**  Diagrama de secuencia del caso de uso 07.
+      <br>
+  **Fuente:** Elaboración propia.
+      </center>
