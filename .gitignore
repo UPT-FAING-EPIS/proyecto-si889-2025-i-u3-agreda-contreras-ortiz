@@ -11,3 +11,6 @@ infra/*.tfstate
 infra/*.tfstate.backup
 infra/crash.log
 infra/.terraform.lock.hcl
+
+PianoRiseDotnet/PianoRiseApp/bin/
+PianoRiseDotnet/PianoRiseApp/obj/
