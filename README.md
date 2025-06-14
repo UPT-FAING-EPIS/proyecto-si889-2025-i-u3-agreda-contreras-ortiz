@@ -1,69 +1,92 @@
-# 🎹 PianoRise - Plataforma Web para el Aprendizaje del Piano
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/IlvMPK2Y)
+[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=18703740)
+# proyecto-formatos-01
+# 🚀 Infraestructura de Azure para WebApps - Proyecto Patrones
 
-**PianoRise** es una aplicación web educativa que busca facilitar el aprendizaje del piano para estudiantes de nivel escolar. El sistema permite a los alumnos practicar canciones y ejercicios musicales con retroalimentación en tiempo real, y a los docentes monitorear su avance. El proyecto está dividido en dos módulos: uno desarrollado en **.NET (ASP.NET Core)** y otro en **Python (Flask + Uvicorn)** para el procesamiento de audio.
-
----
-
-## 🌐 Links de Despliegue
-
-- [Alumno (Frontend)](https://pianorise-alumno.azurewebsites.net/)
-- [Admin (Frontend)](https://pianorise.azurewebsites.net/)
-
----
-## ⚙️ Requisitos Previos
-
-- [.NET SDK 8.0.409]([https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/en-us/download/dotnet/8.0))
-- [Python 3.10+](https://www.python.org/)
-- [pip](https://pip.pypa.io/)
+Este módulo de infraestructura contiene la configuración de Terraform para desplegar dos aplicaciones web en Azure, utilizando App Service Plan y Web Apps Linux, totalmente preparado para automatizar despliegues con GitHub Actions.
 
 ---
 
-## 🚀 Instrucciones de Ejecución
+## ✅ Requisitos
 
-### 🧩 Backend .NET (ASP.NET Core)
-
-1. Navegar al directorio:  
-   `cd PianoRiseDotnet`
-
-2. Restaurar dependencias:  
-   `dotnet restore`
-
-3. Construir el proyecto:  
-   `dotnet build`
-
-4. Ejecutar el servidor:  
-   `dotnet run`
+- 🧑‍💻 Cuenta de Azure activa.
+- 🔐 Haber creado un **Service Principal** y configurado el secreto `AZURE_CREDENTIALS` en GitHub.
+- 📁 Tener configurado un archivo de variables (`terraform.tfvars`) en la carpeta `infra/`.
+- ⚙️ Haber configurado GitHub Actions con el workflow `terraform-deploy.yml`.
 
 ---
 
-### 🎧 Servicio de Audio (Python + Flask + Uvicorn)
+## 🗂️ Archivos principales
 
-1. Navegar al directorio:  
-   `cd PianoRisePython`
-
-2. Crear entorno virtual:  
-   `python -m venv venv`
-
-3. Activar entorno virtual:  
-   - Linux/macOS: `source venv/bin/activate`  
-   - Windows: `venv\Scripts\activate`
-
-4. Instalar dependencias:  
-   `pip install -r requirements.txt`
-
-5. Ejecutar el servidor:  
-   `uvicorn main:app --reload --port 8000`
-
-> 🔗 El servicio estará disponible en `http://127.0.0.1:8000`.
+|  📄 Archivo               | 📝 Descripción |
+|:--------------------------|:------------|
+| `main.tf`                 | Define el Resource Group, App Service Plan y WebApps. |
+| `variables.tf`            | Variables de entrada para parametrizar la infraestructura. |
+| `outputs.tf`              | Outputs importantes como las URLs de las WebApps creadas. |
+| `terraform.tfvars`        | Valores reales para las variables definidas. |
+| `providers.tf`            | Configuración del proveedor de Azure. |
+| `versions.tf`             | Versiones requeridas de Terraform y AzureRM. |
 
 ---
 
-## 🛠 Tecnologías Usadas
+## 📦 Variables esperadas (`variables.tf`)
 
-- **.NET Core (C#)** – Backend principal y lógica del sistema
-- **Python + Flask + Uvicorn** – Servicio auxiliar para captura/procesamiento de audio
-- **MongoDB / SQL Server** – Base de datos (según configuración)
-- **Web Audio API** – Captura de notas musicales desde el navegador
+| 🔑 Variable                  | Tipo     | Descripción |
+|:---------------------------|:---------|:------------|
+| `resource_group_name`      | `string` | Nombre del Resource Group donde desplegar recursos. |
+| `location`                 | `string` | Región de Azure. |
+| `app_service_plan_name`    | `string` | Nombre del App Service Plan para alojar las WebApps. |
+| `webapps`                  | `list(object({ name = string }))` | Lista de aplicaciones web a crear. |
 
+---
+
+## 🚀 Procedimiento de despliegue
+
+### 1️⃣ Crear y configurar el secreto de Azure
+Tener en GitHub un secreto llamado `AZURE_CREDENTIALS` con el contenido JSON generado desde el siguiente comando:
+```bash
+az ad sp create-for-rbac --name "terraform-gha-sp" --role Contributor --scopes /subscriptions/$(az account show --query id -o tsv) --sdk-auth
+```
+🔒 Copia el JSON de salida y guárdalo como secreto `AZURE_CREDENTIALS` en GitHub ➝ Settings ➝ Secrets ➝ Actions.
+
+---
+
+### 2️⃣ Configurar archivo `terraform.tfvars`
+En la carpeta `infra/`, crea o actualiza tu archivo `terraform.tfvars` con el contenido:
+```bash
+resource_group_name = "nombre-de-tu-resource-group"  
+location = "East US"  
+app_service_plan_name = "nombre-de-tu-appservice-plan"
+
+webapps = [
+  { name = "nombre-webapp-1" },
+  { name = "nombre-webapp-2" }
+]
+```
+---
+
+### 3️⃣ Usar el workflow de GitHub Actions
+
+En GitHub ➔ pestaña **Actions**:
+
+1. Selecciona el workflow **"Terraform Manual Deploy"**.
+2. Haz clic en **Run workflow**.
+3. Ingresa el nombre de tu archivo `.tfvars`.
+4. Haz clic en **Run**.
+
+🏗️ Esto ejecutará automáticamente:
+
+- terraform init
+- terraform validate
+- terraform plan
+- terraform apply
+
+---
+
+## 💡 Notas importantes
+
+- 🌐 El despliegue aplica recursos en la **suscripción** donde fue creado el Service Principal.
+- 💰 Los cambios de infraestructura son visibles usando Infracost en Pull Requests configurado en el `infracost.yml`.
+- 🛠️ Pendiente: Agregar un workflow que permita enviar automáticamente el contenedor al Azure App Service tras una build exitosa.
 ---
 
