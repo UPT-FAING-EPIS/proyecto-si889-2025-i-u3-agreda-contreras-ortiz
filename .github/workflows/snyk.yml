@@ -1,0 +1,40 @@
+name: "Snyk Analysis with HTML Report"
+
+on:
+  push:
+    branches:
+      - main  
+      - sonar
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  snyk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Install Snyk CLI and snyk-to-html
+        run: |
+          npm install -g snyk snyk-to-html
+
+      - name: Install project dependencies
+        run: |
+          cd PianoRisePython
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run Snyk Test and Generate HTML Report
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          cd PianoRisePython
+          snyk test --all-projects --json --exclude=requirements.txt | snyk-to-html -o snyk-report.html
+
+      - name: Upload Snyk HTML Report as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-html-report
+          path: PianoRisePython/snyk-report.html

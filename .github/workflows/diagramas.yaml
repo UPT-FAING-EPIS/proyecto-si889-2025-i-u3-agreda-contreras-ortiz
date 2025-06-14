@@ -1,0 +1,73 @@
+name: Generate Diagrams
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  generate_diagrams:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y graphviz python3-pip doxygen
+        pip install pyan3==1.1.1
+        pip install pydeps
+        pip install pylint  # Incluye pyreverse
+
+    - name: Run Bash Script for Class Diagrams
+      run: |
+        cd PianoRisePython
+        chmod +x generate_all.sh
+        ./generate_all.sh
+
+    - name: Setup PowerShell Environment
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+
+    - name: Run PowerShell Script for Function Dependencies
+      shell: pwsh
+      run: |
+        $files = Get-ChildItem -Recurse -Filter *.py -Path ./PianoRisePython/app | ForEach-Object { $_.FullName }
+        $dotContent = pyan3 $files --dot --no-defines --colored --grouped --annotated
+        $dotContent | Set-Content -Path "callgraph.dot" -Encoding ASCII
+        dot -Tsvg callgraph.dot -o callgraph.svg
+
+    - name: Generate Import Dependency Graph
+      run: |
+        cd PianoRisePython
+        pydeps app --noshow -T svg -o import_graph.svg --rmprefix app.
+
+    - name: Upload callgraph.svg as Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: callgraph-svg
+        path: callgraph.svg
+
+    - name: Upload import_graph.svg as Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: import-graph-svg
+        path: PianoRisePython/import_graph.svg
+
+    - name: Upload class_diagram.png as Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: class-diagram
+        path: PianoRisePython/diagrams/class_diagram.png
+
+    - name: Upload Doxygen HTML Docs
+      uses: actions/upload-artifact@v4
+      with:
+        name: doxygen-html
+        path: PianoRisePython/docs/html/
