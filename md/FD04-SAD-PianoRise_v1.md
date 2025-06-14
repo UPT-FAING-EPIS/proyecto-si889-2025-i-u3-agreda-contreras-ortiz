@@ -417,3 +417,20 @@ El diagrama muestra la interacción entre alumnos y docentes, cada uno con usuar
 - **Optimización de consultas**: Se optimizarán las consultas a la base de datos, especialmente aquellas relacionadas con la carga de aulas, historial de estudiantes y reproducción de resultados de prácticas.
 
 - **Caching**: Se utilizarán mecanismos de caching inteligente para minimizar la latencia en la carga de información estática como canciones del repertorio general o historial de prácticas.
+
+
+## 4. Análisis de Requerimientos
+
+### 4.1. Requerimientos funcionales
+
+| Código  | Requerimiento                         | Descripción                                                                                                                                                                                                                           | Prioridad |
+|---------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| RF-01   | Gestionar autenticación y credenciales del usuario | Permitir a los usuarios registrarse en el sistema proporcionando sus credenciales de acceso. Además, el sistema debe permitir que los usuarios puedan iniciar sesión utilizando dichas credenciales y cerrar sesión de forma segura. | Alta      |
+| RF-02   | Almacenar progreso                    | Guardar el progreso de los estudiantes únicamente cuando completen satisfactoriamente una canción. El sistema registrará la canción como completada y almacenará la cantidad de errores cometidos durante su ejecución.              | Alta      |
+| RF-03   | Reconocer notas musicales             | Capturar y procesar el audio del usuario a través del micrófono en tiempo real, identificando las notas tocadas y comparándolas con las esperadas en cada ejercicio.                                                                 | Alta      |
+| RF-04   | Seleccionar canciones de un repertorio | Permitir que los estudiantes elijan canciones disponibles en el repertorio personalizado de su aula para practicarlas dentro del sistema.                                                                                             | Media     |
+| RF-05   | Gestionar repertorio de canciones     | Permitir que los administradores agreguen, editen o deshabiliten canciones del repertorio disponible general antes y después de la configuración del aula.                                                                           | Media     |
+| RF-06   | Monitorear progreso de estudiantes    | Permitir que los docentes visualicen el estado de las canciones completadas y no completadas por cada estudiante, junto con la puntuación obtenida en cada canción.                                                                  | Alta      |
+| RF-07   | Generar reportes de desempeño         | Generar un reporte que muestre diferentes métricas y gráficos del desempeño de un aula.                                                                                                                                              | Media     |
+| RF-08   | Gestionar Aulas                       | Permitir que los docentes creen aulas dentro del sistema para organizar a sus estudiantes. Dentro deberá seleccionar las canciones desde el repositorio general que serán asignadas al aula. El sistema generará un código de ingreso automáticamente, el cual será utilizado por los estudiantes para unirse a dicha aula. | Alta      |
+| RF-09   | Gestionar Docentes                    | Permitir al administrador del sistema registrar nuevos docentes creando sus credenciales de acceso, definiendo su nombre, apellido, correo y contraseña. Además, podrá editar y deshabilitar docentes.                               | Alta      |
