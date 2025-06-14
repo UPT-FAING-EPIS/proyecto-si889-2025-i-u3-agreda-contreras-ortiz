@@ -182,3 +182,18 @@ Se empleó la metodología ágil **Scrum** en 5 sprints:
 | 4      | Monitoreo, historial y reportes                      |
 | 5      | Pruebas, mejoras e integración final                 |
 
+## 6. Cronograma
+
+| Fecha        | Actividad / Módulo                          | Descripción                                                              |
+|--------------|---------------------------------------------|--------------------------------------------------------------------------|
+| 30/04/2025   | Inicio del Proyecto                         | Inicio oficial del desarrollo del sistema PianoRise.                     |
+| 30/04/2025   | Configuración del entorno Python            | Instalación de dependencias (pyaudio, librosa, etc.).                    |
+| 01/05/2025   | Módulo Captura de Audio                     | Captura de audio en tiempo real mediante micrófono.                      |
+| 01/05/2025   | Procesamiento de Frecuencias                | Extracción de notas musicales desde el espectro.                         |
+| 02/05/2025   | Comparación de Notas y Evaluación           | Evaluación de notas correctas e incorrectas.                             |
+| 02/05/2025   | Feedback Visual del Progreso                | Visualización de aciertos al tocar notas.                                |
+| 03/05/2025   | Primera Entrega                             | Entrega del módulo de reconocimiento.                                    |
+| 04–05/05     | Autenticación                               | Registro e inicio de sesión para administradores, docentes y alumnos.    |
+| 06–07/05     | Gestión de Aulas Virtuales                  | Creación y edición de aulas.                                             |
+| 08–09/05     | Registro de Docentes                        | Administración de docentes por parte del administrador.                  |
+
