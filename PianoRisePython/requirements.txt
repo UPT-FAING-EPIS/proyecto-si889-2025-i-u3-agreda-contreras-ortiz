@@ -16,3 +16,4 @@ pydeps
 python-dotenv
 gevent>=1.4
 gunicorn
+sentry-sdk[flask]
